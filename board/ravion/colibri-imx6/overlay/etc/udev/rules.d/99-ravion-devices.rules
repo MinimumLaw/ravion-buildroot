@@ -1,0 +1,67 @@
+
+ACTION!="add|remove|change", GOTO="ravion-devices-end"
+
+#
+# GNS receivers
+#
+
+SUBSYSTEM=="tty", \
+	ENV{ID_VENDOR_ENC}=="Radioavionica\x20Corp", \
+	ENV{ID_MODEL_ENC}=="468157.004", \
+	ENV{ID_USB_INTERFACE_NUM}=="00", \
+	SYMLINK+="gps_nmea"
+
+SUBSYSTEM=="tty", \
+	ENV{ID_VENDOR_ENC}=="Radioavionica\x20Corp", \
+	ENV{ID_MODEL_ENC}=="468157.004", \
+	ENV{ID_USB_INTERFACE_NUM}=="02", \
+	SYMLINK+="gps_vendor"
+
+#
+# Signal converter
+#
+
+SUBSYSTEM=="tty", \
+	ENV{ID_VENDOR_ENC}=="Radioavionica\x20Corp", \
+	ENV{ID_MODEL_ENC}=="468157.006", \
+	SYMLINK+="serial_rs485"
+
+#
+# Signal creator
+#
+
+SUBSYSTEM=="tty", \
+	ENV{ID_VENDOR_ENC}=="Radioavionica\x20Corp", \
+	ENV{ID_MODEL_ENC}=="468157.003a", \
+	ENV{ID_USB_INTERFACE_NUM}=="00", \
+	SYMLINK+="creator_a_port1"
+
+SUBSYSTEM=="tty", \
+	ENV{ID_VENDOR_ENC}=="Radioavionica\x20Corp", \
+	ENV{ID_MODEL_ENC}=="468157.003a", \
+	ENV{ID_USB_INTERFACE_NUM}=="02", \
+	SYMLINK+="creator_a_port2"
+
+SUBSYSTEM=="tty", \
+	ENV{ID_VENDOR_ENC}=="Radioavionica\x20Corp", \
+	ENV{ID_MODEL_ENC}=="468157.003b", \
+	ENV{ID_USB_INTERFACE_NUM}=="00", \
+	SYMLINK+="creator_b_port1"
+
+SUBSYSTEM=="tty", \
+	ENV{ID_VENDOR_ENC}=="Radioavionica\x20Corp", \
+	ENV{ID_MODEL_ENC}=="468157.003b", \
+	ENV{ID_USB_INTERFACE_NUM}=="02", \
+	SYMLINK+="creator_b_port2"
+
+#
+# MFPOU bluetooth device
+#
+SUBSYSTEM=="tty", \
+	ENV{ID_VENDOR_ENC}=="OAO\x20Radioavionica", \
+	ENV{ID_VENDOR_ID}=="adca", \
+	ENV{ID_MODEL_ID}=="2018", \
+	SYMLINK+="bt_uart"
+
+LABEL="ravion-devices-end"
+
