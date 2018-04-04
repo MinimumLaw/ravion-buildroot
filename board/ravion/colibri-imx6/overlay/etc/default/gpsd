@@ -1,0 +1,3 @@
+GPSD_OPTIONS=""
+OPTIONS=""
+DEVICES="/dev/pps1 /dev/gps_nmea"
