@@ -117,6 +117,7 @@ F:	package/ktap/
 
 N:	André Hentschel <nerv@dawncrow.de>
 F:	package/azure-iot-sdk-c/
+F:	package/libkrb5/
 F:	package/openal/
 F:	package/p7zip/
 F:	package/wine/
@@ -161,6 +162,12 @@ F:	package/wf111/
 
 N:	ARC Maintainers <arc-buildroot@synopsys.com>
 F:	arch/Config.in.arc
+F:	board/synopsys/
+F:	configs/snps_arc700_axs101_defconfig
+F:	configs/snps_archs38_axs103_defconfig
+F:	configs/snps_archs38_haps_defconfig
+F:	configs/snps_archs38_hsdk_defconfig
+F:	configs/snps_archs38_vdk_defconfig
 
 N:	Ariel D'Alessandro <ariel@vanguardiasur.com.ar>
 F:	package/axfsutils/
@@ -182,6 +189,7 @@ F:	package/stress/
 
 N:	Asaf Kahlon <asafka7@gmail.com>
 F:	package/python-jsonmodels/
+F:	package/python-yieldfrom/
 
 N:	Ash Charles <ash.charles@savoirfairelinux.com>
 F:	package/pru-software-support/
@@ -657,12 +665,15 @@ F:	package/gupnp/
 F:	package/gupnp-dlna/
 F:	package/gupnp-tools/
 F:	package/hiredis/
+F:	package/i2pd/
 F:	package/igd2-for-linux/
+F:	package/libcdio-paranoia/
 F:	package/libmpdclient/
 F:	package/libupnp/
 F:	package/libupnp18/
 F:	package/minissdpd/
 F:	package/motion/
+F:	package/ncmpc/
 F:	package/rygel/
 F:	package/safeclib/
 F:	package/tinycbor/
@@ -856,6 +867,10 @@ F:	package/yad/
 
 N:	Jan Heylen <jan.heylen@nokia.com>
 F:	package/opentracing-cpp/
+
+N:	Jan Kundrát <jan.kundrat@cesnet.cz>
+F:	configs/solidrun_clearfog_defconfig
+F:	board/solidrun/clearfog/
 
 N:	Jan Kraval <jan.kraval@gmail.com>
 F:	board/orangepi/orangepi-lite
@@ -1161,8 +1176,10 @@ F:	package/ts4900-fpga/
 N:	Matt Weber <matthew.weber@rockwellcollins.com>
 F:	board/freescale/p*
 F:	board/freescale/t*
+F:	board/qemu/ppc64-e5500/
 F:	configs/freescale_p*
 F:	configs/freescale_t*
+F:	configs/qemu_ppc64_e5500_defconfig
 F:	package/argp-standalone/
 F:	package/aufs/
 F:	package/aufs-util/
@@ -1395,8 +1412,20 @@ N:	Pedro Aguilar <paguilar@paguilar.org>
 F:	package/libunistring/
 
 N:	Peter Korsgaard <peter@korsgaard.com>
+F:	board/minnowboard/
+F:	board/nexbox/a95x/
+F:	board/openblocks/a6/
 F:	board/orangepi/
+F:	board/pandaboard/
+F:	board/roseapplepi/
+F:	configs/minnowboard_max-graphical_defconfig
+F:	configs/minnowboard_max_defconfig
+F:	configs/nexbox_a95x_defconfig
+F:	configs/openblocks_a6_defconfig
 F:	configs/orangepi_pc_defconfig
+F:	configs/pandaboard_defconfig
+F:	configs/roseapplepi_defconfig
+F:	configs/sheevaplug_defconfig
 F:	package/docker-compose/
 F:	package/dump1090/
 F:	package/flickcurl/
@@ -1434,11 +1463,14 @@ F:	package/dejavu/
 F:	package/dillo/
 F:	package/edid-decode/
 F:	package/ghostscript-fonts/
+F:	package/gstreamer1/gst1-interpipe/
 F:	package/gstreamer1/gst1-validate/
+F:	package/gstreamer1/gstreamer1-editing-services/
 F:	package/libevdev/
 F:	package/log4cplus/
 F:	package/postgresql/
 F:	package/qt5/
+F:	package/quotatool/
 F:	package/racehound/
 F:	package/wiringpi/
 
@@ -1660,6 +1692,7 @@ F:	package/daq/
 F:	package/libgdiplus/
 F:	package/mongodb/
 F:	package/pimd/
+F:	package/snort/
 F:	package/stella/
 F:	package/traceroute/
 F:	package/tunctl/

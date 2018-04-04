@@ -4,7 +4,7 @@
 # It needs to be regenerated every time a defconfig is added, using
 # "make .gitlab-ci.yml".
 
-image: buildroot/base:20180205.0730
+image: buildroot/base:20180318.1724
 
 .defconfig_script: &defconfig_script
     - echo 'Configure Buildroot'
@@ -30,9 +30,21 @@ check-DEVELOPERS:
     script:
         - "! utils/get-developers | grep -v 'No action specified'"
 
+check-flake8:
+    before_script:
+        # Help flake8 to find the Python files without .py extension.
+        - find * -type f -name '*.py' > files.txt
+        - find * -type f -print0 | xargs -0 file | grep 'Python script' | cut -d':' -f1 >> files.txt
+        - sort -u files.txt | tee files.processed
+    script:
+        - python -m flake8 --statistics --count $(cat files.processed)
+    after_script:
+        - wc -l files.processed
+
 check-package:
     script:
-        - find . -type f \( -name '*.mk' -o -name '*.hash' \) -exec ./utils/check-package {} +
+        - find . -type f \( -name '*.mk' -o -name '*.hash' -o -name 'Config.*' \)
+            -exec ./utils/check-package {} +
 
 .defconfig: &defconfig
     # Running the defconfigs for every push is too much, so limit to
@@ -198,6 +210,7 @@ qemu_mips64r6_malta_defconfig: *defconfig
 qemu_mips64r6el_malta_defconfig: *defconfig
 qemu_nios2_10m50_defconfig: *defconfig
 qemu_or1k_defconfig: *defconfig
+qemu_ppc64_e5500_defconfig: *defconfig
 qemu_ppc64_pseries_defconfig: *defconfig
 qemu_ppc64le_pseries_defconfig: *defconfig
 qemu_ppc_g3beige_defconfig: *defconfig
@@ -212,6 +225,7 @@ qemu_x86_defconfig: *defconfig
 qemu_xtensa_lx60_defconfig: *defconfig
 qemu_xtensa_lx60_nommu_defconfig: *defconfig
 raspberrypi0_defconfig: *defconfig
+raspberrypi0w_defconfig: *defconfig
 raspberrypi2_defconfig: *defconfig
 raspberrypi3_64_defconfig: *defconfig
 raspberrypi3_defconfig: *defconfig
@@ -224,8 +238,10 @@ snps_aarch64_vdk_defconfig: *defconfig
 snps_arc700_axs101_defconfig: *defconfig
 snps_archs38_axs103_defconfig: *defconfig
 snps_archs38_haps_defconfig: *defconfig
+snps_archs38_hsdk_defconfig: *defconfig
 snps_archs38_vdk_defconfig: *defconfig
 socrates_cyclone5_defconfig: *defconfig
+solidrun_clearfog_defconfig: *defconfig
 solidrun_macchiatobin_mainline_defconfig: *defconfig
 solidrun_macchiatobin_marvell_defconfig: *defconfig
 stm32f429_disco_defconfig: *defconfig
