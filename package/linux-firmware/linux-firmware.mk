@@ -24,6 +24,16 @@ LINUX_FIRMWARE_DIRS += radeon
 LINUX_FIRMWARE_ALL_LICENSE_FILES += LICENSE.radeon
 endif
 
+ifeq ($(BR2_PACKAGE_LINUX_FIRMWARE_QCOM_VENUS),y)
+LINUX_FIRMWARE_DIRS += qcom/venus-1.8 qcom/venus-4.2
+LINUX_FIRMWARE_ALL_LICENSE_FILES += LICENSE.qcom qcom/NOTICE.txt
+endif
+
+ifeq ($(BR2_PACKAGE_LINUX_FIRMWARE_QCOM_ADRENO),y)
+LINUX_FIRMWARE_FILES += qcom/a*
+LINUX_FIRMWARE_ALL_LICENSE_FILES += LICENSE.qcom qcom/NOTICE.txt
+endif
+
 # Intel Wireless Bluetooth
 ifeq ($(BR2_PACKAGE_LINUX_FIRMWARE_IBT),y)
 LINUX_FIRMWARE_FILES += intel/ibt-*
@@ -489,6 +499,7 @@ ifneq ($(LINUX_FIRMWARE_DIRS),)
 define LINUX_FIRMWARE_INSTALL_DIRS
 	$(foreach d,$(LINUX_FIRMWARE_DIRS), \
 		rm -rf $(TARGET_DIR)/lib/firmware/$(d); \
+		mkdir -p $(dir $(TARGET_DIR)/lib/firmware/$(d)); \
 		cp -a $(@D)/$(d) $(TARGET_DIR)/lib/firmware/$(d)$(sep))
 endef
 endif

@@ -53,6 +53,7 @@ F:	package/nginx-naxsi/
 F:	package/policycoreutils/
 F:	package/python-flask-sqlalchemy/
 F:	package/python-mutagen/
+F:	package/python-psycopg2/
 F:	package/python-sqlalchemy/
 F:	package/restorecond/
 F:	package/refpolicy/
@@ -190,6 +191,7 @@ F:	package/stress/
 N:	Asaf Kahlon <asafka7@gmail.com>
 F:	package/python-jsonmodels/
 F:	package/python-yieldfrom/
+F:	package/zeromq/
 
 N:	Ash Charles <ash.charles@savoirfairelinux.com>
 F:	package/pru-software-support/
@@ -600,11 +602,17 @@ F:	package/spi-tools/
 F:	package/xdotool/
 F:	configs/pc_x86_64_*
 
+N:	Erik Larsson <karl.erik.larsson@gmail.com>
+F:	package/imx-mkimage/
+
 N:	Erik Stromdahl <erik.stromdahl@gmail.com>
 F:	package/mxsldr/
 
 N:	Ernesto L. Williams Jr <realcontrols@gmail.com>
 F:	package/szip/
+
+N:	Eugene Tarassov <eugene@largest.net>
+F:	package/tcf-agent/
 
 N:	Evan Zelkowitz <evan.zelkowitz@gmail.com>
 F:	package/sdl_gfx/
@@ -667,7 +675,9 @@ F:	package/gupnp-tools/
 F:	package/hiredis/
 F:	package/i2pd/
 F:	package/igd2-for-linux/
+F:	package/libcap-ng/
 F:	package/libcdio-paranoia/
+F:	package/libglib2/
 F:	package/libmpdclient/
 F:	package/libupnp/
 F:	package/libupnp18/
@@ -785,6 +795,8 @@ F:	package/sdl2/
 
 N:	Guillaume William Brs <guillaume.bressaix@gmail.com>
 F:	package/liquid-dsp/
+F:	package/pixiewps/
+F:	package/reaver/
 
 N:	Guo Ren <ren_guo@c-sky.com>
 F:	arch/Config.in.csky
@@ -1069,7 +1081,9 @@ F:	package/ti-sgx-um/
 
 N:	Luca Ceresoli <luca@lucaceresoli.net>
 F:	board/olimex/a20_olinuxino/
+F:	board/zynq/
 F:	configs/olimex_a20_olinuxino_*
+F:	configs/zynq_zed_defconfig
 F:	package/agentpp/
 F:	package/exim/
 F:	package/libpjsip/
@@ -1154,9 +1168,14 @@ F:	package/harfbuzz/
 F:	package/libsecret/
 
 N:	Martin Bark <martin@barkynet.com>
+F:	board/raspberrypi/
+F:	configs/raspberrypi3_defconfig
 F:	package/ca-certificates/
 F:	package/connman/
 F:	package/nodejs/
+F:	package/rpi-bt-firmware/
+F:	package/rpi-firmware/
+F:	package/rpi-wifi-firmware/
 F:	package/tzdata/
 F:	package/zic/
 
@@ -1582,7 +1601,8 @@ F:	package/bullet/
 F:	package/efl/
 F:	package/enlightenment/
 F:	package/expedite/
-F:	package/iqvlinux/
+F:	package/flare-engine/
+F:	package/flare-game/
 F:	package/irrlicht/
 F:	package/liblinear/
 F:	package/lensfun/
@@ -1891,6 +1911,9 @@ N:	Tzu-Jung Lee <roylee17@gmail.com>
 F:	package/dropwatch/
 F:	package/tstools/
 
+N:	Valentin Korenblit <valentin.korenblit@smile.fr>
+F:	package/llvm/
+
 N:	Vanya Sergeev <vsergeev@gmail.com>
 F:	package/lua-periphery/
 
@@ -1927,7 +1950,6 @@ N:	Wade Berrier <wberrier@gmail.com>
 F:	package/ngrep/
 
 N:	Waldemar Brodkorb <wbx@openadk.org>
-F:	arch/Config.in.bfin
 F:	arch/Config.in.m68k
 F:	arch/Config.in.or1k
 F:	arch/Config.in.sparc

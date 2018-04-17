@@ -145,6 +145,38 @@ endif
 ###############################################################################
 comment "Legacy options removed in 2018.05"
 
+config BR2_PACKAGE_IQVLINUX
+	bool "iqvlinux package removed"
+	select BR2_LEGACY
+	help
+	  This package contained a kernel module from Intel, which
+	  could only be used together with Intel userspace tools
+	  provided under NDA, which also come with the same kernel
+	  module. The copy of the kernel module available on
+	  SourceForge is provided only to comply with the GPLv2
+	  requirement. Intel engineers were even surprised it even
+	  built and were not willing to make any effort to fix their
+	  tarball naming to contain a version number. Therefore, it
+	  does not make sense for Buildroot to provide such a package.
+
+	  See https://sourceforge.net/p/e1000/bugs/589/ for the
+	  discussion.
+
+config BR2_BINFMT_FLAT_SEP_DATA
+	bool "binfmt FLAT with separate code and data removed"
+	select BR2_LEGACY
+	help
+	  This FLAT binary format was only used on Blackfin, which has
+	  been removed.
+
+config BR2_bfin
+	bool "Blackfin architecture support removed"
+	select BR2_LEGACY
+	help
+	  Following the removal of Blackfin support for the upstream
+	  Linux kernel, Buildroot has removed support for this CPU
+	  architecture.
+
 config BR2_PACKAGE_KODI_ADSP_BASIC
 	bool "kodi-adsp-basic package removed"
 	select BR2_LEGACY
@@ -3155,23 +3187,6 @@ config BR2_HAVE_DEVFILES
 	  filesystem was deprecated since a while, and has been removed
 	  completely from Buildroot.
 	  See Buildroot's documentation for more explanations.
-
-###############################################################################
-comment "Legacy options removed in 2013.05"
-
-config BR2_PACKAGE_LINUX_FIRMWARE_RTL_8192
-	bool "Realtek 8192 replaced by Realtek 81xx"
-	select BR2_LEGACY
-	select BR2_PACKAGE_LINUX_FIRMWARE_RTL_81XX
-	help
-	  Now covers the whole Realtek 81xx familly: 8188/8192.
-
-config BR2_PACKAGE_LINUX_FIRMWARE_RTL_8712
-	bool "Realtek 8712 replaced by Realtek 87xx"
-	select BR2_LEGACY
-	select BR2_PACKAGE_LINUX_FIRMWARE_RTL_87XX
-	help
-	  Now covers the whole Realtek 87xx familly: 8712/8723.
 
 endmenu
 

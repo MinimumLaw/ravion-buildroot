@@ -47,10 +47,14 @@ git_cache="${dl_dir}/git"
 # fetch'ed later.
 if [ ! -d "${git_cache}" ]; then
     _git init "'${git_cache}'"
-    _git -C "'${git_cache}'" remote add origin "'${uri}'"
 fi
 
 pushd "${git_cache}" >/dev/null
+
+# Ensure the repo has an origin (in case a previous run was killed).
+if ! git remote |grep -q -E '^origin$'; then
+    _git remote add origin "'${uri}'"
+fi
 
 _git remote set-url origin "'${uri}'"
 
@@ -111,7 +115,7 @@ LC_ALL=C sort <"${output}.list" >"${output}.list.sorted"
 
 # Create GNU-format tarballs, since that's the format of the tarballs on
 # sources.buildroot.org and used in the *.hash files
-tar cf - --transform="s/^\.$/${basename}/" \
+tar cf - --transform="s/^\.\//${basename}\//" \
 	--numeric-owner --owner=0 --group=0 --mtime="${date}" --format=gnu \
          -T "${output}.list.sorted" >"${output}.tar"
 gzip -6 -n <"${output}.tar" >"${output}"

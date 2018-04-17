@@ -9,13 +9,13 @@
 BINUTILS_VERSION = $(call qstrip,$(BR2_BINUTILS_VERSION))
 ifeq ($(BINUTILS_VERSION),)
 ifeq ($(BR2_arc),y)
-BINUTILS_VERSION = arc-2017.09-release
+BINUTILS_VERSION = arc-2018.03-rc1
 else
 BINUTILS_VERSION = 2.29.1
 endif
 endif # BINUTILS_VERSION
 
-ifeq ($(BINUTILS_VERSION),arc-2017.09-release)
+ifeq ($(BINUTILS_VERSION),arc-2018.03-rc1)
 BINUTILS_SITE = $(call github,foss-for-synopsys-dwc-arc-processors,binutils-gdb,$(BINUTILS_VERSION))
 BINUTILS_SOURCE = binutils-$(BINUTILS_VERSION).tar.gz
 BINUTILS_FROM_GIT = y
@@ -64,12 +64,6 @@ BINUTILS_INSTALL_TARGET_OPTS = DESTDIR=$(TARGET_DIR) MAKEINFO=true install
 HOST_BINUTILS_CONF_ENV += MAKEINFO=true
 HOST_BINUTILS_MAKE_OPTS += MAKEINFO=true
 HOST_BINUTILS_INSTALL_OPTS += MAKEINFO=true install
-
-# gcc bug with Os/O1/O2/O3, PR77311
-# error: unable to find a register to spill in class 'CCREGS'
-ifeq ($(BR2_bfin),y)
-BINUTILS_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -O0"
-endif
 
 # Workaround a build issue with -Os for ARM Cortex-M cpus.
 # (Binutils 2.25.1 and 2.26.1)
