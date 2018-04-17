@@ -1,0 +1,4 @@
+NODM_ENABLED=true
+NODM_X_OPTIONS="vt7 -nolisten tcp"
+NODM_USER=ravion
+NODM_XSESSION=matchbox-session
