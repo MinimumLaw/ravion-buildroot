@@ -28,7 +28,7 @@ setenv bootargs ${bootargs} ${rootfs}
 
 # Add serial console
 setenv bootargs ${bootargs} consoleblank=0 no_console_suspend=1
-setenv bootargs ${bootargs} console=tty0 console=${console},${baudrate}n8
+setenv bootargs ${bootargs} console=${console},${baudrate}n8
 
 # Boot kernel
 bootz ${kernel_addr_r} - ${fdt_addr_r}
