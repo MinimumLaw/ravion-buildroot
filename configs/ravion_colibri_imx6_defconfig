@@ -27,7 +27,7 @@ BR2_LINUX_KERNEL_CUSTOM_REPO_URL="https://github.com/MinimumLaw/ravion-kernel.gi
 BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION="imx6-ravion-vanilla"
 BR2_LINUX_KERNEL_DEFCONFIG="ravion_imx6"
 BR2_LINUX_KERNEL_DTS_SUPPORT=y
-BR2_LINUX_KERNEL_INTREE_DTS_NAME="imx6dl-colibri-mcp imx6dl-colibri-mcp-maximal imx6dl-colibri-cimc-lite imx6dl-colibri-cimc imx6dl-colibri-mtu imx6dl-colibri-pkk-m7 imx6dl-colibri-pkk-m10 imx6dl-colibri-router imx6qp-ravion"
+BR2_LINUX_KERNEL_INTREE_DTS_NAME="imx6dl-colibri-mcp imx6dl-colibri-mcp-maximal imx6dl-colibri-cimc-lite imx6dl-colibri-cimc imx6dl-colibri-mtu imx6dl-colibri-pkk-m7 imx6dl-colibri-pkk-m10 imx6dl-colibri-router imx6qp-ravion imx6qp-ravion-pkk-m7 imx6qp-ravion-pkk-m10"
 BR2_LINUX_KERNEL_INSTALL_TARGET=y
 # BR2_PACKAGE_BUSYBOX is not set
 BR2_PACKAGE_ALSA_UTILS=y

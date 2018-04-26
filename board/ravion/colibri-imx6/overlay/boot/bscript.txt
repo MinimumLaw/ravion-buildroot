@@ -1,7 +1,7 @@
 
 # Load Linux kernel and device tree
 load ${blkname} ${blkdev} ${kernel_addr_r} /boot/zImage || exit
-load ${blkname} ${blkdev} ${fdt_addr_r} /boot/i${soc}dl-colibri-${board}.dtb || exit
+load ${blkname} ${blkdev} ${fdt_addr_r} /boot/i${soc}${variant}-${board_name}-${board}.dtb || exit
 
 # Add some basic args to cmdline
 setenv bootargs ${bootargs} fec_mac=${ethaddr} net.ifnames=0 ${defargs} ${vidargs}
