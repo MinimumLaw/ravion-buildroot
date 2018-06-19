@@ -4,7 +4,11 @@
 #
 ################################################################################
 
-IMX_GPU_VIV_VERSION = 6.2.2.p0-aarch32
+ifeq ($(BR2_aarch64),y)
+IMX_GPU_VIV_VERSION = 6.2.4.p1.2-aarch64
+else
+IMX_GPU_VIV_VERSION = 6.2.4.p1.2-aarch32
+endif
 IMX_GPU_VIV_SITE = $(FREESCALE_IMX_SITE)
 IMX_GPU_VIV_SOURCE = imx-gpu-viv-$(IMX_GPU_VIV_VERSION).bin
 
@@ -23,6 +27,10 @@ ifeq ($(IMX_GPU_VIV_LIB_TARGET),x11)
 # does so). For this to work we need build dependencies to libXdamage,
 # libXext and libXfixes so that X functions used in libGAL.so are referenced.
 IMX_GPU_VIV_DEPENDENCIES += xlib_libXdamage xlib_libXext xlib_libXfixes
+endif
+
+ifeq ($(IMX_GPU_VIV_LIB_TARGET),wl)
+IMX_GPU_VIV_DEPENDENCIES += libdrm wayland
 endif
 
 define IMX_GPU_VIV_EXTRACT_CMDS
@@ -59,6 +67,12 @@ endif
 ifeq ($(IMX_GPU_VIV_LIB_TARGET),fb)
 define IMX_GPU_VIV_FIXUP_PKGCONFIG
 	ln -sf egl_linuxfb.pc $(@D)/gpu-core/usr/lib/pkgconfig/egl.pc
+endef
+endif
+
+ifeq ($(IMX_GPU_VIV_LIB_TARGET),wl)
+define IMX_GPU_VIV_FIXUP_PKGCONFIG
+	ln -sf egl_wayland.pc $(@D)/gpu-core/usr/lib/pkgconfig/egl.pc
 endef
 endif
 

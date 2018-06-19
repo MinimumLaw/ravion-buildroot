@@ -174,11 +174,23 @@ config BR2_PACKAGE_MPD_TWOLAME
 
 comment "Input plugins"
 
+config BR2_PACKAGE_MPD_CDIO_PARANOIA
+	bool "cdio-paranoia"
+	select BR2_PACKAGE_LIBCDIO_PARANOIA
+	help
+	  Enable cdio-paranoia support.
+
 config BR2_PACKAGE_MPD_CURL
 	bool "curl"
 	select BR2_PACKAGE_LIBCURL
 	help
 	  Enable curl streaming (http) support.
+
+config BR2_PACKAGE_MPD_LIBMMS
+	bool "mms"
+	select BR2_PACKAGE_LIBMMS
+	help
+	  Enable MMS support.
 
 config BR2_PACKAGE_MPD_LIBNFS
 	bool "nfs"
