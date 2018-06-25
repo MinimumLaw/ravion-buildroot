@@ -195,6 +195,7 @@ F:	package/sqlcipher/
 F:	package/stress/
 
 N:	Asaf Kahlon <asafka7@gmail.com>
+F:	package/libuv/
 F:	package/python-jsonmodels/
 F:	package/python-reentry/
 F:	package/python-subprocess32/
@@ -1663,6 +1664,9 @@ N:	Rodrigo Rebello <rprebello@gmail.com>
 F:	package/chocolate-doom/
 F:	package/irssi/
 F:	package/vnstat/
+
+N:	Roman Gorbenkov <roman.gorbenkov@ens2m.org>
+F:	package/davfs2/
 
 N:	Romain Naour <romain.naour@gmail.com>
 F:	package/aubio/
