@@ -1,0 +1,13 @@
+diff --git a/configs/mx6ul_var_dart_mmc_defconfig b/configs/mx6ul_var_dart_mmc_defconfig
+index 9dea59ebcc..aec8606cee 100644
+--- a/configs/mx6ul_var_dart_mmc_defconfig
++++ b/configs/mx6ul_var_dart_mmc_defconfig
+@@ -16,8 +16,6 @@ CONFIG_SPL_ENV_SUPPORT=y
+ CONFIG_SPL_EXT_SUPPORT=y
+ CONFIG_SPL_I2C_SUPPORT=y
+ CONFIG_SPL_USB_HOST_SUPPORT=y
+-CONFIG_SPL_USB_GADGET_SUPPORT=y
+-CONFIG_SPL_USB_SDP_SUPPORT=y
+ CONFIG_HUSH_PARSER=y
+ CONFIG_CMD_BOOTZ=y
+ # CONFIG_CMD_IMLS is not set
