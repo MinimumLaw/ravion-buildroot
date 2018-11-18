@@ -1,0 +1,4 @@
+#
+# U-Boot enverooment fixing text file
+#
+fdt_file=imx6ull-var-dart-speakingcity.dtb

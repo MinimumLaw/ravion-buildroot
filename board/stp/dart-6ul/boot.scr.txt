@@ -1,0 +1,9 @@
+
+#
+# U-Boot boot script file
+#
+
+echo Executing boot.scr...
+run loadimage
+run mmcboot
+
