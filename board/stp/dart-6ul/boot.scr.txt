@@ -8,7 +8,7 @@ if test -Z ${use_nfs}; then
  nfs ${loadaddr} ${serverip}:${nfs_root}${nfs_boot}/zImage
  nfs ${fdt_addr} ${serverip}:${nfs_root}${nfs_boot}/${fdt_file}
  setenv bootargs ${bootargs} console=${console},${baudrate}
- setenv bootargs ${bootargs} ip=${ipaddr}:${serverip}:${serverip}:${netmask}:stp:eth0:off
+ setenv bootargs ${bootargs} ip=${ipaddr}:${serverip}:${gatewayip}:${netmask}::eth0:off
  setenv bootargs ${bootargs} root=/dev/nfs nfsroot=${serverip}:${nfs_root},v3 rw
  echo boot with args = ${bootargs}
  bootz ${loadaddr} - ${fdt_addr}
