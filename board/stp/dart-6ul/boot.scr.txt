@@ -1,0 +1,19 @@
+
+#
+# U-Boot boot script file
+#
+
+if test -Z ${use_nfs}; then
+ echo Use debug system root on NFS server
+ nfs ${loadaddr} ${serverip}:${nfs_root}${nfs_boot}/zImage
+ nfs ${fdt_addr} ${serverip}:${nfs_root}${nfs_boot}/${fdt_file}
+ setenv bootargs ${bootargs} console=${console},${baudrate}
+ setenv bootargs ${bootargs} ip=${ipaddr}:${serverip}:${gatewayip}:${netmask}::eth0:off
+ setenv bootargs ${bootargs} root=/dev/nfs nfsroot=${serverip}:${nfs_root},v3 rw
+ echo boot with args = ${bootargs}
+ bootz ${loadaddr} - ${fdt_addr}
+else
+ echo Executing boot.scr...
+ run loadimage
+ run mmcboot
+fi

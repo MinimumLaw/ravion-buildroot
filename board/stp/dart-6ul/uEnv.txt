@@ -1,0 +1,20 @@
+#######################################
+# U-Boot enverooment fixing text file #
+#######################################
+
+# Flattened device tree file
+fdt_file=imx6ull-var-dart-speakingcity.dtb
+
+# ethernet config
+serverip=192.168.254.254
+gatewayip=192.168.254.254
+ipaddr=192.168.254.1
+netmask=255.255.255.0
+
+# Network File System config
+nfs_root=/cimc/SpeakingCity/root
+nfs_boot=/boot
+
+# Uncomment for debug and use boot zImage and DTB
+# from NFS server, then use root on NFS
+# use_nfs=yes
