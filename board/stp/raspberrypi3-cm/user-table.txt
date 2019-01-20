@@ -1,0 +1,1 @@
+user -1 users -1 =user /home/user /bin/bash wheel,video,audio,disk,tty Default system user
