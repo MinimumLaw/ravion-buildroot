@@ -1,0 +1,21 @@
+diff -purN stp-tools-origin_master/gps_test.c stp-tools-origin_master.b/gps_test.c
+--- stp-tools-origin_master/gps_test.c	2019-01-15 21:20:53.000000000 +0300
++++ stp-tools-origin_master.b/gps_test.c	2019-01-20 17:00:19.632990939 +0300
+@@ -86,7 +86,7 @@ int main(int argv, char **argc)
+         /* Put this in a loop with a call to a high resolution sleep () in it. */
+         if (gps_waiting(&GpsData, 500)) {
+             //errno = 0;
+-            if (gps_read(&GpsData) == -1) {
++            if (gps_read(&GpsData, NULL, 0) == -1) {
+                 printf("Read error\n");
+                 //exit(1);
+ 		sleep(1);
+@@ -209,7 +209,7 @@ main(int argc, char **argv)
+         if (gps_waiting (&gpsdata, 500)) 
+         {
+             /* read data */
+-            if ((rc = gps_read(&gpsdata)) == -1) 
++            if ((rc = gps_read(&gpsdata, NULL, 0)) == -1) 
+             {
+                 printf("error occured reading gps data. code: %d, reason: %s\n", rc, gps_errstr(rc));
+             } 

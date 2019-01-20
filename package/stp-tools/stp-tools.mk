@@ -9,13 +9,13 @@ STP_TOOLS_LICENSE = PROPRIETARY
 # STP-TOOLS_DEPENDENCIES = ???
 
 define STP_TOOLS_BUILD_CMDS
-	echo $(MAKE) CC=$(CROSS_COMPILE)gcc
+	$(TARGET_MAKE_ENV) $(TARGET_CONFIGURE_OPTS) $(MAKE) -C $(@D) all
 endef
 
 define STP_TOOLS_INSTALL_TARGET_CMDS
-	echo $(INSTALL) -D -m 0644 $(@D)/call $(TARGET_DIR)/usr/local/bin/call
-	echo $(INSTALL) -D -m 0644 $(@D)/gps $(TARGET_DIR)/usr/local/bin/gps
-	echo $(INSTALL) -D -m 0644 $(@D)/sc_uart $(TARGET_DIR)/usr/local/bin/sc_uart
+	$(INSTALL) -D -m 0755 $(@D)/call $(TARGET_DIR)/usr/local/bin/call
+	$(INSTALL) -D -m 0755 $(@D)/gps $(TARGET_DIR)/usr/local/bin/gps
+	$(INSTALL) -D -m 0755 $(@D)/sc_uart $(TARGET_DIR)/usr/local/bin/sc_uart
 endef
 
 $(eval $(generic-package))

@@ -1,0 +1,64 @@
+diff -purN stp-tools-origin_master/Makefile stp-tools-origin_master.b/Makefile
+--- stp-tools-origin_master/Makefile	2019-01-15 21:20:53.000000000 +0300
++++ stp-tools-origin_master.b/Makefile	2019-01-20 15:13:28.707769639 +0300
+@@ -1,45 +1,47 @@
+ # Makefile for Full Program
+ 
++CC ?= gcc
++
+ all: sc_uart call gps
+ 
+ sc_uart: main.o dev_named_pipe.o dev_shm.o dev_uart.o dev_info.o dev_ble.o dev_status.o dev_routes.o
+-	gcc -o sc_uart main.o dev_named_pipe.o dev_shm.o dev_uart.o dev_info.o dev_ble.o dev_status.o dev_routes.o -lrt -lbluetooth
++	$(CC) -o sc_uart main.o dev_named_pipe.o dev_shm.o dev_uart.o dev_info.o dev_ble.o dev_status.o dev_routes.o -lrt -lbluetooth
+ 
+ call: call.o dev_named_pipe.o dev_shm.o dev_info.o
+-	gcc -o call call.o dev_named_pipe.o dev_shm.o dev_info.o -lrt
++	$(CC) -o call call.o dev_named_pipe.o dev_shm.o dev_info.o -lrt
+ 
+ gps: gps_test.o dev_named_pipe.o dev_shm.o dev_info.o
+-	gcc -o gps gps_test.o dev_named_pipe.o dev_shm.o dev_info.o -lrt -lm -lgps
++	$(CC) -o gps gps_test.o dev_named_pipe.o dev_shm.o dev_info.o -lrt -lm -lgps
+ 
+ named_pipe.o: dev_named_pipe.c
+-	gcc -c dev_named_pipe.c
++	$(CC) -c dev_named_pipe.c
+ 
+ dev_shm.o: dev_shm.c
+-	gcc -c dev_shm.c
++	$(CC) -c dev_shm.c
+ 
+ dev_uart.o: dev_uart.c
+-	gcc -c dev_uart.c
++	$(CC) -c dev_uart.c
+ 
+ dev_info.o: dev_info.c
+-	gcc -c dev_info.c
++	$(CC) -c dev_info.c
+ 
+ dev_ble.o: dev_ble.c
+-	gcc -c dev_ble.c
++	$(CC) -c dev_ble.c
+ 
+ dev_status.o: dev_status.c
+-	gcc -c dev_status.c
++	$(CC) -c dev_status.c
+ 
+ dev_routes.o: dev_routes.c
+-	gcc -c dev_routes.c
++	$(CC) -c dev_routes.c
+ 
+ main.o: main.c
+-	gcc -c main.c
++	$(CC) -c main.c
+ 
+ call.o: call.c
+-	gcc -c call.c
++	$(CC) -c call.c
+ 
+ gps_test.o: gps_test.c
+-	gcc -c gps_test.c
++	$(CC) -c gps_test.c
+ 
+ clean:
+ 	rm -f *.o sc_uart call gps
