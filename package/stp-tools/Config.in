@@ -1,0 +1,7 @@
+config BR2_PACKAGE_STP_TOOLS
+	bool "stp-tools"
+	help
+	  Vendor application specific toools for SpecTechPribor radiotranciver
+	  SpeakingCity devices.
+
+	  https://bitbucket.org/DenisKalou/raspberry_uart/
