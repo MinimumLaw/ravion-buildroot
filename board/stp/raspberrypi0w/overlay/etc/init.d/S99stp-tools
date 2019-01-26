@@ -4,12 +4,21 @@
 #
 
 start() {
+        printf "Starting bluetooth communicatons daemon: "
+        /usr/libexec/bluetooth/bluetoothd &
+        echo "OK"
+	printf "Starting hostapd: "
+	hostapd -B /etc/hostapd.conf
+	echo "OK"
 	printf "Starting stp-tools: "
 	/usr/local/bin/sc_uart >/dev/null 2>/var/log/sc_uart.err &
 	echo "OK"
 }
 
 stop() {
+	printf "Stopping hostapd: "
+	killall hostapd
+	echo "OK"
 	printf "Stopping stp-tools: "
 	killall /usr/local/bin/sc_uart
 	echo "OK"
