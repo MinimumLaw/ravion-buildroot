@@ -1,0 +1,1 @@
+daemon ALL=(ALL) NOPASSWD: /usr/local/bin/call

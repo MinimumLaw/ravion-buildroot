@@ -8,7 +8,7 @@ start() {
         /usr/libexec/bluetooth/bluetoothd &
         echo "OK"
 	printf "Starting hostapd: "
-	hostapd -B /etc/hostapd.conf
+	hostapd -B /etc/hostapd/hostapd.conf
 	echo "OK"
 	printf "Starting stp-tools: "
 	/usr/local/bin/sc_uart >/dev/null 2>/var/log/sc_uart.err &
