@@ -68,6 +68,18 @@ init_uart_clock=3000000
 __EOF__
 fi
 
+# Copy initrd image (update procedure here)
+cp -f ${BOARD_DIR}/rootfs.cpio.gz ${BINARIES_DIR}
+
+# then uncomment initrd in config.txt
+if ! grep -qE '^initramfs rootfs.cpio.gz' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+	cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+
+# set initramfs image (prebuild)
+initramfs rootfs.cpio.gz
+__EOF__
+fi
+
 rm -rf "${GENIMAGE_TMP}"
 
 genimage                           \
