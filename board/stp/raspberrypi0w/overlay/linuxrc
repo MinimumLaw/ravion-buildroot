@@ -20,6 +20,11 @@ mkdir -p /overlay/old
 mkdir -p /overlay/work
 mkdir -p /overlay/root
 
+# load wifi & bluetooth modules
+modprobe brcmfmac
+hciattach /dev/ttyS0 bcm43xx 460800 noflow&
+hciconfig hci0 up
+
 # Mount root fs to /overlay/ro
 mount -o bind / /overlay/ro
 # Mount overlayed rootfs (rw) to /overlay/root
