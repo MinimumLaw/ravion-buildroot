@@ -2,7 +2,7 @@
 # stp-tools
 ##############################################################################
 
-STP_TOOLS_VERSION = origin/master
+STP_TOOLS_VERSION = origin/test-for-new-firmware
 STP_TOOLS_SITE = git@bitbucket.org:DenisKalou/raspberry_uart.git
 STP_TOOLS_SITE_METHOD = git
 STP_TOOLS_LICENSE = PROPRIETARY
