@@ -11,7 +11,7 @@ start() {
 	hostapd -B /etc/hostapd/hostapd.conf
 	echo "OK"
 	printf "Starting stp-tools: "
-	/usr/local/bin/sc_uart >/dev/null 2>/var/log/sc_uart.err &
+	/usr/local/bin/sc_uart >/var/log/sc_uart.err 2>&1 &
 	echo "OK"
 }
 
