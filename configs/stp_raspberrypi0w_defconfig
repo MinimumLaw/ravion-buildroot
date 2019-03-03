@@ -15,6 +15,7 @@ BR2_TARGET_LOCALTIME="Europe/Moscow"
 BR2_ROOTFS_USERS_TABLES="board/stp/raspberrypi0w/user-table.txt"
 BR2_ROOTFS_OVERLAY="board/stp/raspberrypi0w/overlay"
 BR2_ROOTFS_POST_BUILD_SCRIPT="board/stp/raspberrypi0w/post-build.sh"
+BR2_ROOTFS_POST_FAKEROOT_SCRIPT="board/stp/raspberrypi0w/fix_rootfs.sh"
 BR2_ROOTFS_POST_IMAGE_SCRIPT="board/stp/raspberrypi0w/post-image.sh"
 BR2_ROOTFS_POST_SCRIPT_ARGS="--add-pi3-miniuart-bt-overlay"
 BR2_LINUX_KERNEL=y
@@ -53,7 +54,6 @@ BR2_PACKAGE_BLUEZ5_UTILS_DEPRECATED=y
 BR2_PACKAGE_DNSMASQ=y
 # BR2_PACKAGE_DNSMASQ_TFTP is not set
 BR2_PACKAGE_HOSTAPD=y
-BR2_PACKAGE_HOSTAPD_WPS=y
 # BR2_PACKAGE_HOSTAPD_VLAN is not set
 BR2_PACKAGE_IPERF3=y
 BR2_PACKAGE_IW=y
