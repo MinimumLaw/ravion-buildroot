@@ -4,9 +4,9 @@ AuthorizedKeysFile	.ssh/authorized_keys
 
 Subsystem	sftp	/usr/libexec/sftp-server
 
-Match User www-data
-	ChrootDirectory %h
-	ForceCommand internal-sftp
-	X11Forwarding no
-	AllowTcpForwarding no
-	PermitTTY no
+#Match User www-data
+#	ChrootDirectory %h
+#	ForceCommand internal-sftp
+#	X11Forwarding no
+#	AllowTcpForwarding no
+#	PermitTTY no
