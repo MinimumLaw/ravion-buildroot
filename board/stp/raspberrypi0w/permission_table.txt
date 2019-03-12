@@ -23,8 +23,11 @@
 # SpeakingCity Special #
 ########################
 /var/www/html				d	775	33	33	-	-	-	-	-
+/var/www/html/txt_files			d	775	33	33	-	-	-	-	-
+/var/www/html/txt_files/routes		d	775	33	33	-	-	-	-	-
 /var/www/html/call.php			f	775	33	33	-	-	-	-	-
 /var/www/.ssh				d	700	33	33	-	-	-	-	-
-/var/www/.ssh/id_rsa.pub		d	644	33	33	-	-	-	-	-
+/var/www/.ssh/authorized_keys		d	600	33	33	-	-	-	-	-
 /overlay/update				d	755	50	50	-	-	-	-	-
 /etc/sc_uart				d	775	33	33	-	-	-	-	-
+#/etc/sc_uart/.stp_config		d	664	33	33	-	-	-	-	-

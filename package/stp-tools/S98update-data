@@ -22,6 +22,7 @@ start() {
 }
 
 stop() {
+	echo Stopping update data...
 }
 
 case "$1" in
