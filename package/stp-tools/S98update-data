@@ -4,18 +4,22 @@
 #
 
 start() {
-	if [ -f /overlay/update/data.tar.bz2 ]; then
+	# Remount filesystem options
+	mount /overlay/update -o remount,noatime,nodirtime,sync,dirsync
+	mount /overlay/rw -o remount,noatime,nodirtime,sync,dirsync
+	# Then check and extract update data
+	if [ -f /var/www/html/update/data.tar.bz2 ]; then
 		echo Found data archive for update.
-		if bzip2 -t /overlay/update/data.tar.bz2; then
+		if bzip2 -t /var/www/html/update/data.tar.bz2; then
 			echo -n Update data checked, unpacking...
-			bzcat /overlay/update/data.tar.bz2 | \
+			bzcat /var/www/html/update/data.tar.bz2 | \
 				sudo -u www-data -g www-data \
 					/bin/sh -c 'tar x -o -C /'
 			echo "[DONE]"
 		else
 			echo Update data invalid, skip updating.
 		fi
-		rm -f /overlay/update/data.tar.bz2 
+		rm -f /var/www/html/update/data.tar.bz2
 	else
 		echo Skipping update www-data...
 	fi
