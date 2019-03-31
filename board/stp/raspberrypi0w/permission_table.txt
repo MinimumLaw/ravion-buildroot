@@ -27,6 +27,7 @@
 /var/www/html/txt_files			d	775	33	33	-	-	-	-	-
 /var/www/html/txt_files/routes		d	775	33	33	-	-	-	-	-
 /var/www/html/call.php			f	775	33	33	-	-	-	-	-
+/var/www/html/stp-release.txt		f	775	33	33	-	-	-	-	-
 /var/www/.ssh				d	700	33	33	-	-	-	-	-
 /var/www/.ssh/authorized_keys		d	600	33	33	-	-	-	-	-
 /overlay/update				d	755	50	50	-	-	-	-	-
