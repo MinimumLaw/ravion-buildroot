@@ -4,9 +4,19 @@
 #
 
 start() {
+	# Check filesystem
+	mount /overlay/update -o remount,ro,noatime,sync,dirsync
+	mount /overlay -o remount,ro,noatime,sync,dirsync
+	fsck.ext2 -yf /dev/mmcblk0p4
+	fsck.ext2 -yf /dev/mmcblk0p3
 	# Remount filesystem options
-	mount /overlay/update -o remount,noatime,nodirtime,sync,dirsync
-	mount /overlay/rw -o remount,noatime,nodirtime,sync,dirsync
+	mount /overlay/update -o remount,rw,commit=1,noatime,sync,dirsync
+	mount /overlay -o remount,rw,commit=1,noatime,sync,dirsync
+	# place data update on separate partition
+	mkdir -p /overlay/update/www-data
+	chown www-data:www-data /overlay/update/www-data
+	ln -sfT /overlay/update/www-data /var/www/html/update
+	sync
 	# Then check and extract update data
 	if [ -f /var/www/html/update/data.tar.bz2 ]; then
 		echo Found data archive for update.
@@ -15,6 +25,7 @@ start() {
 			bzcat /var/www/html/update/data.tar.bz2 | \
 				sudo -u www-data -g www-data \
 					/bin/sh -c 'tar x -o -C /'
+			sync
 			echo "[DONE]"
 		else
 			echo Update data invalid, skip updating.
