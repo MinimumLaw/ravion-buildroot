@@ -22,6 +22,7 @@
 ########################
 # SpeakingCity Special #
 ########################
+#/home/pi				s	777	0	0	-	-	-	-	-
 /var/www/html				d	775	33	33	-	-	-	-	-
 #/var/www/html/update			d	775	33	33	-	-	-	-	-
 /var/www/html/txt_files			d	775	33	33	-	-	-	-	-

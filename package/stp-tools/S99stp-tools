@@ -4,9 +4,19 @@
 #
 
 start() {
-        printf "Starting bluetooth communicatons daemon: "
-        /usr/libexec/bluetooth/bluetoothd &
-        echo "OK"
+	printf "Prepare status.txt: "
+	touch /tmp/status.txt
+	chmod 0777 /tmp/status.txt
+	chown www-data:www-data /tmp/status.txt
+	echo "OK"
+	printf "Prepare StationaryInfo.txt: "
+	touch /tmp/StationaryInfo.txt
+	chmod 0777 /tmp/StationaryInfo.txt
+	chown www-data:www-data /tmp/StationaryInfo.txt
+	echo "OK"
+	printf "Starting bluetooth communicatons daemon: "
+	/usr/libexec/bluetooth/bluetoothd &
+	echo "OK"
 	printf "Starting hostapd: "
 	hostapd -B /etc/hostapd/hostapd.conf
 	echo "OK"
