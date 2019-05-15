@@ -20,6 +20,9 @@ start() {
 	printf "Starting hostapd: "
 	hostapd -B /etc/hostapd/hostapd.conf
 	echo "OK"
+	printf "Turn off WLAN power-save mode: "
+	/usr/sbin/iw dev wlan0 set power_save off
+	echo "OK"
 	printf "Starting stp-tools: "
 	/usr/local/bin/sc_uart >/var/log/sc_uart.err 2>&1 &
 	echo "OK"
