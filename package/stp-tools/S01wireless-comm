@@ -4,11 +4,13 @@
 #
 
 start() {
-	printf "load wifi & bluetooth modules: "
+	printf "load wifi, bluetooth & gps modules: "
 	modprobe brcmfmac
+	modprobe cdc-acm
 	hciattach /dev/ttyS0 bcm43xx 460800 noflow&
 	sleep 3
 	hciconfig hci0 up
+	chmod o+rw /dev/ttyACM0
         echo "OK"
 }
 
