@@ -24,10 +24,6 @@ staff 50 staff -1 =staff /overlay/update /bin/sh wheel,daemon,video,audio,disk,t
 endef
 
 define STP_TOOLS_INSTALL_INIT_SYSV
-	$(INSTALL) -D -m 0755 package/stp-tools/S01wireless-comm \
-		$(TARGET_DIR)/etc/init.d/S01wireless-comm
-	$(INSTALL) -D -m 0755 package/stp-tools/S98update-data \
-		$(TARGET_DIR)/etc/init.d/S98update-data
 	$(INSTALL) -D -m 0755 package/stp-tools/S99stp-tools \
 		$(TARGET_DIR)/etc/init.d/S99stp-tools
 endef
