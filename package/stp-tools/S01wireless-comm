@@ -9,7 +9,18 @@ start() {
 	hciattach /dev/ttyS0 bcm43xx 460800 noflow&
 	sleep 3
 	hciconfig hci0 up
-        echo "OK"
+	echo "OK"
+	printf "Prepare modem driver: "
+	echo 23 > /sys/class/gpio/export
+	echo 24 > /sys/class/gpio/export
+	echo out > /sys/class/gpio/gpio24/direction
+	echo out > /sys/class/gpio/gpio23/direction
+	echo 1 > /sys/class/gpio/gpio24/value
+	echo 1 > /sys/class/gpio/gpio23/value
+	modprobe ppp_generic
+	modprobe option
+	echo 0 > /sys/class/gpio/gpio23/value
+	echo "OK"
 }
 
 stop() {
