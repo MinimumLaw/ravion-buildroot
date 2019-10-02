@@ -1,0 +1,36 @@
+# See package/makedevs/README for details
+#
+# This device table is used to assign proper ownership and permissions
+# on various files. It doesn't create any device file, as it is used
+# in both static device configurations (where /dev/ is static) and in
+# dynamic configurations (where devtmpfs, mdev or udev are used).
+#
+# <name>				<type>	<mode>	<uid>	<gid>	<major>	<minor>	<start>	<inc>	<count>
+/dev					d	755	0	0	-	-	-	-	-
+/tmp					d	1777	0	0	-	-	-	-	-
+/etc					d	755	0	0	-	-	-	-	-
+/root					d	700	0	0	-	-	-	-	-
+/var/www				d	755	33	33	-	-	-	-	-
+/etc/shadow				f	600	0	0	-	-	-	-	-
+/etc/passwd				f	644	0	0	-	-	-	-	-
+/etc/network/if-up.d			d	755	0	0	-	-	-	-	-
+/etc/network/if-pre-up.d		d	755	0	0	-	-	-	-	-
+/etc/network/if-down.d			d	755	0	0	-	-	-	-	-
+/etc/network/if-post-down.d		d	755	0	0	-	-	-	-	-
+# uncomment this to allow starting x as non-root
+#/usr/X11R6/bin/Xfbdev			f	4755	0	0	-	-	-	-	-
+########################
+# SpeakingCity Special #
+########################
+#/home/pi				s	777	0	0	-	-	-	-	-
+/var/www/html				d	775	33	33	-	-	-	-	-
+#/var/www/html/update			d	775	33	33	-	-	-	-	-
+/var/www/html/txt_files			d	775	33	33	-	-	-	-	-
+/var/www/html/txt_files/routes		d	775	33	33	-	-	-	-	-
+/var/www/html/call.php			f	775	33	33	-	-	-	-	-
+/var/www/html/stp-release.txt		f	775	33	33	-	-	-	-	-
+/var/www/.ssh				d	700	33	33	-	-	-	-	-
+/var/www/.ssh/authorized_keys		d	600	33	33	-	-	-	-	-
+/overlay/update				d	755	50	50	-	-	-	-	-
+/etc/sc_uart				d	775	33	33	-	-	-	-	-
+#/etc/sc_uart/.stp_config		d	664	33	33	-	-	-	-	-
