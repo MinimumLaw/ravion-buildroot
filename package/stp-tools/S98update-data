@@ -5,12 +5,12 @@
 
 start() {
 	# Check filesystem
-	mount /overlay/update -o remount,ro,noatime,sync,dirsync
-	mount /overlay -o remount,ro,noatime,sync,dirsync
+	mount /overlay/update -o remount,ro,noatime
+	mount /overlay -o remount,ro,noatime
 	fsck.ext2 -yf /dev/mmcblk0p4
 	fsck.ext2 -yf /dev/mmcblk0p3
 	# Remount filesystem options
-	mount /overlay/update -o remount,rw,commit=1,noatime,sync,dirsync
+	mount /overlay/update -o remount,rw,commit=1,noatime
 	mount /overlay -o remount,rw,commit=1,noatime,sync,dirsync
 	# place data update on separate partition
 	mkdir -p /overlay/update/www-data
