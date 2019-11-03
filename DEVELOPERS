@@ -231,7 +231,7 @@ F:	package/spdlog/
 F:	package/uftp/
 F:	package/zeromq/
 
-N:	Ash Charles <ash.charles@savoirfairelinux.com>
+N:	Ash Charles <ashcharles@gmail.com>
 F:	package/pru-software-support/
 F:	package/ti-cgt-pru/
 
@@ -287,7 +287,6 @@ F:	package/alsa-utils/
 F:	package/apache/
 F:	package/apr/
 F:	package/apr-util/
-F:	package/asterisk/
 F:	package/bcg729/
 F:	package/bluez-tools/
 F:	package/boinc/
@@ -1213,10 +1212,6 @@ F:	package/phidgetwebservice/
 F:	package/rapidxml/
 F:	package/sphinxbase/
 
-N:	Jonathan Liu <net147@gmail.com>
-F:	package/python-meld3/
-F:	package/supervisor/
-
 N:	Jörg Krause <joerg.krause@embedded.rocks>
 F:	board/lemaker/bananapro/
 F:	configs/bananapro_defconfig
@@ -1668,9 +1663,6 @@ N:	Mirza Krak <mirza.krak@northern.tech>
 F:	package/mender/
 F:	package/mender-artifact/
 
-N:	Morgan Delestre <m.delestre@sinters.fr>
-F:	package/monkey/
-
 N:	Murat Demirten <mdemirten@yh.com.tr>
 F:	package/jpeg-turbo/
 F:	package/libgeotiff/
@@ -1811,6 +1803,8 @@ F:	package/python-websocket-client/
 F:	package/sedutil/
 F:	package/tpm2-totp/
 F:	package/triggerhappy/
+F:	package/wireguard/
+F:	support/testing/tests/package/test_docker_compose.py
 
 N:	Peter Seiderer <ps.report@gmx.net>
 F:	board/raspberrypi/
@@ -1885,6 +1879,7 @@ F:	package/libevent/
 F:	package/libubootenv/
 F:	package/libxml2/
 F:	package/python-periphery/
+F:	package/sbc/
 F:	package/stunnel/
 
 N:	Pieter De Gendt <pieter.degendt@gmail.com>
@@ -1963,6 +1958,8 @@ N:	Romain Naour <romain.naour@gmail.com>
 F:	package/aubio/
 F:	package/binutils/
 F:	package/bullet/
+F:	package/clang/
+F:	package/clinfo/
 F:	package/efl/
 F:	package/enet/
 F:	package/enlightenment/
@@ -1973,9 +1970,11 @@ F:	package/glibc/
 F:	package/irrlicht/
 F:	package/liblinear/
 F:	package/lensfun/
+F:	package/libclc/
 F:	package/libgta/
 F:	package/libspatialindex/
 F:	package/linux-syscall-support/
+F:	package/llvm/
 F:	package/lugaru/
 F:	package/mcelog/
 F:	package/mesa3d/
