@@ -10,6 +10,24 @@ GENIMAGE_TMP="${BUILD_DIR}/genimage.tmp"
 for arg in "$@"
 do
 	case "${arg}" in
+		--add-audio-overlay)
+		if ! grep -qE '^dtoverlay=pwm-2chan' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			echo "Adding audio overlay to config.txt"
+			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+# Add audio overlay
+dtoverlay=pwm-2chan,pin=18,func=2,pin2=13,func2=4
+__EOF__
+		fi
+		;;
+		--enable-audio)
+		if ! grep -qE '^dtparam=audio=on' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			echo "Enabling audio in config.txt"
+			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+# Enable audio
+dtparam=audio=on
+__EOF__
+		fi
+		;;
 		--add-pi3-miniuart-bt-overlay)
 		if ! grep -qE '^dtoverlay=' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
 			echo "Adding 'dtoverlay=pi3-miniuart-bt' to config.txt (fixes ttyAMA0 serial console)."
@@ -79,6 +97,8 @@ if ! grep -qE '^initramfs rootfs.cpio.gz' "${BINARIES_DIR}/rpi-firmware/config.t
 initramfs rootfs.cpio.gz
 __EOF__
 fi
+
+echo "root=/dev/mmcblk0p2 rootwait console=tty2" > "${BINARIES_DIR}/rpi-firmware/cmdline.txt"
 
 rm -rf "${GENIMAGE_TMP}"
 
