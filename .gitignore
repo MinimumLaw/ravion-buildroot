@@ -13,3 +13,7 @@
 *.rej
 *~
 *.pyc
+#
+# STP Files
+#
+board/stp/raspberrypi0w/overlay/overlay/rw/var/www/html/*

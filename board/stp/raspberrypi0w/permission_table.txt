@@ -34,6 +34,13 @@
 /var/www/html/stp-release.txt		f	775	33	33	-	-	-	-	-
 /var/www/.ssh				d	700	33	33	-	-	-	-	-
 /var/www/.ssh/authorized_keys		d	600	33	33	-	-	-	-	-
+/overlay				d	755	0	0	-	-	-	-	-
+/overlay/rw				d	755	0	0	-	-	-	-	-
+/overlay/rw/var				d	775	33	33	-	-	-	-	-
+/overlay/rw/var/www			d	775	33	33	-	-	-	-	-
+/overlay/rw/var/www/html		d	775	33	33	-	-	-	-	-
+/overlay/ro				d	755	0	0	-	-	-	-	-
+/overlay/root				d	755	0	0	-	-	-	-	-
 /overlay/update				d	755	50	50	-	-	-	-	-
 /etc/sc_uart				d	775	33	33	-	-	-	-	-
 #/etc/sc_uart/.stp_config		d	664	33	33	-	-	-	-	-
