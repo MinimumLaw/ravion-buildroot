@@ -27,9 +27,11 @@
 ########################
 #/home/pi				s	777	0	0	-	-	-	-	-
 /var/www/html				d	775	33	33	-	-	-	-	-
-#/var/www/html/update			d	775	33	33	-	-	-	-	-
-/var/www/html/txt_files			d	775	33	33	-	-	-	-	-
-/var/www/html/txt_files/routes		d	775	33	33	-	-	-	-	-
+/var/www/html/Data			d	775	33	33	-	-	-	-	-
+/var/www/html/Data/text_files		d	775	33	33	-	-	-	-	-
+/var/www/html/Data/audio_files		d	775	33	33	-	-	-	-	-
+/var/www/html/Data/archive		d	775	33	33	-	-	-	-	-
+/var/www/html/Data/content		d	775	33	33	-	-	-	-	-
 /var/www/html/call.php			f	775	33	33	-	-	-	-	-
 /var/www/html/stp-release.txt		f	775	33	33	-	-	-	-	-
 /var/www/.ssh				d	700	33	33	-	-	-	-	-
