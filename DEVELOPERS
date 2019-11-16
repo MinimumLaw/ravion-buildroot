@@ -1172,6 +1172,9 @@ F:	package/quota/
 N:	Jason Pruitt <jrspruitt@gmail.com>
 F:	package/librtlsdr/
 
+N:	Jens Kleintje <scooby22@web.de>
+F:	package/gcnano-binaries/
+
 N:	Jens Rosenboom <j.rosenboom@x-ion.de>
 F:	package/sl/
 
@@ -1237,6 +1240,7 @@ F:	package/dhcpcd/
 
 N:	John Faith <jfaith@impinj.com>
 F:	package/python-inflection/
+F:	package/sdbusplus/
 
 N:	Jonathan Ben Avraham <yba@tkos.co.il>
 F:	arch/Config.in.xtensa
@@ -1393,6 +1397,9 @@ F:	package/ti-sgx-um/
 N:	Louis Aussedat <aussedat.louis@gmail.com>
 F:	board/friendlyarm/nanopi-neo-plus2/
 F:	configs/friendlyarm_nanopi_neo_plus2_defconfig
+F:	package/python-dnspython/
+F:	package/python-future/
+F:	package/python-huepy/
 F:	package/python-tqdm/
 
 N:	Louis-Paul Cordier <lpdev@cordier.org>
