@@ -1591,6 +1591,7 @@ F:	package/policycoreutils/
 F:	package/proftpd/
 F:	package/protobuf-c/
 F:	package/protobuf/
+F:	package/python-bunch/
 F:	package/python-colorama/
 F:	package/python-flask-cors/
 F:	package/python-iptables/
@@ -1804,9 +1805,14 @@ F:	package/google-breakpad/
 N:	Patrick Gerber <kpa_info@yahoo.fr>
 F:	package/yavta/
 
+N:	Patrick Havelange <patrick.havelange@essensium.com>
+F:	support/testing/tests/package/test_lxc.py
+F:	support/testing/tests/package/test_lxc/
+
 N:	Paul Cercueil <paul@crapouillou.net>
 F:	package/libiio/
 F:	package/lightning/
+F:	package/umtprd/
 
 N:	Pedro Aguilar <paguilar@paguilar.org>
 F:	package/libunistring/
@@ -1947,6 +1953,7 @@ F:	package/libxml2/
 F:	package/mongoose/
 F:	package/mxml/
 F:	package/python-periphery/
+F:	package/raspi-gpio/
 F:	package/sbc/
 F:	package/stunnel/
 F:	package/tree/
