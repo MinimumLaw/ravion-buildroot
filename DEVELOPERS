@@ -73,6 +73,7 @@ F:	package/selinux-python/
 F:	package/semodule-utils/
 F:	package/setools/
 F:	package/sngrep/
+F:	package/spidermonkey/
 F:	package/systemd/
 
 N:	Adam Heinrich <adam@adamh.cz>
@@ -276,6 +277,7 @@ N:	Baruch Siach <baruch@tkos.co.il>
 F:	board/solidrun/clearfog_gt_8k/
 F:	configs/solidrun_clearfog_gt_8k_defconfig
 F:	package/18xx-ti-utils/
+F:	package/cpuburn-arm/
 F:	package/daemon/
 F:	package/dropbear/
 F:	package/ebtables/
@@ -593,6 +595,10 @@ F:	package/libselinux/
 F:	package/libsemanage/
 F:	package/libsepol/
 F:	package/policycoreutils/
+
+N:	Clément Péron <peron.clem@gmail.com>
+F:	board/beelink/gs1/
+F:	configs/beelink_gs1_defconfig
 
 N:	Corentin Guillevic <corentin.guillevic@smile.fr>
 F:	package/libloki/
@@ -1002,6 +1008,7 @@ F:	package/f2fs-tools/
 F:	package/pigpio/
 F:	package/python-aioblescan/
 F:	package/python-bluezero/
+F:	package/python-crontab/
 F:	package/python-falcon/
 F:	package/python-ifaddr/
 F:	package/python-hiredis/
@@ -1799,6 +1806,9 @@ F:	package/checksec/
 N:	Parnell Springmeyer <parnell@digitalmentat.com>
 F:	package/scrypt/
 
+N:	Pascal de Bruijn <p.debruijn@unilogic.nl>
+F:	package/libargon2/
+
 N:	Pascal Huerst <pascal.huerst@gmail.com>
 F:	package/google-breakpad/
 
@@ -1946,6 +1956,7 @@ N:	Pierre-Jean Texier <pjtexier@koncepto.io>
 F:	package/fping/
 F:	package/genimage/
 F:	package/haveged/
+F:	package/ipset/
 F:	package/libarchive/
 F:	package/libevent/
 F:	package/libubootenv/
