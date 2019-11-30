@@ -21,10 +21,10 @@ start() {
 	hostapd -B /etc/hostapd/hostapd.conf
 	echo "OK"
 	printf "Starting wpa_supplicant: "
-	wpa_supplicant -B -i wlan1 -c /etc/wpa_supplicant/wpa_supplicant.conf
+	wpa_supplicant -B -i sta0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 	echo "OK"
 	printf "Turn off WLAN power-save mode: "
-	/usr/sbin/iw dev wlan0 set power_save off
+	/usr/sbin/iw dev ap0 set power_save off
 	echo "OK"
 	printf "Turn on internet access via modem: "
 	/usr/bin/pon beeline-m2m
