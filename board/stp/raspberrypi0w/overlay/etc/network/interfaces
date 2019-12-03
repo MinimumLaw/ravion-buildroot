@@ -8,8 +8,8 @@ iface lo inet loopback
 auto eth0
 iface eth0 inet dhcp
 
-auto sta0
-iface sta0 inet dhcp
+auto wlan0
+iface wlan0 inet dhcp
 
 auto ap0
 iface ap0 inet static
