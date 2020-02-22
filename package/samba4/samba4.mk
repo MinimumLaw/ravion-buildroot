@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-SAMBA4_VERSION = 4.11.2
+SAMBA4_VERSION = 4.11.6
 SAMBA4_SITE = https://download.samba.org/pub/samba/stable
 SAMBA4_SOURCE = samba-$(SAMBA4_VERSION).tar.gz
 SAMBA4_INSTALL_STAGING = YES
@@ -31,10 +31,9 @@ SAMBA4_PYTHON = \
 	PYTHON_CONFIG="$(STAGING_DIR)/usr/bin/python3-config"
 SAMBA4_DEPENDENCIES += host-python3 python3
 else
-SAMBA4_PYTHON = \
-	PYTHON="$(HOST_DIR)/bin/python2" \
-	PYTHON_CONFIG="$(STAGING_DIR)/usr/bin/python-config"
-SAMBA4_DEPENDENCIES += host-python python
+SAMBA4_PYTHON = PYTHON="$(HOST_DIR)/bin/python2"
+SAMBA4_DEPENDENCIES += host-python
+SAMBA4_CONF_OPTS += --disable-python
 endif
 
 ifeq ($(BR2_PACKAGE_LIBTIRPC),y)
@@ -174,13 +173,6 @@ SAMBA4_DEPENDENCIES += systemd
 endif
 
 define SAMBA4_INSTALL_INIT_SYSTEMD
-	mkdir -p $(TARGET_DIR)/etc/systemd/system/multi-user.target.wants
-	ln -sf ../../../../usr/lib/systemd/system/nmb.service \
-		$(TARGET_DIR)/etc/systemd/system/multi-user.target.wants/nmb.service
-	ln -sf ../../../../usr/lib/systemd/system/smb.service \
-		$(TARGET_DIR)/etc/systemd/system/multi-user.target.wants/smb.service
-	ln -sf ../../../../usr/lib/systemd/system/winbind.service \
-		$(TARGET_DIR)/etc/systemd/system/multi-user.target.wants/winbind.service
 	$(INSTALL) -D -m 644 $(@D)/packaging/systemd/samba.conf.tmp \
 		$(TARGET_DIR)/usr/lib/tmpfiles.d/samba.conf
 	printf "d /var/log/samba  755 root root\n" >>$(TARGET_DIR)/usr/lib/tmpfiles.d/samba.conf

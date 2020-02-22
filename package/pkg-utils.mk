@@ -46,12 +46,24 @@ INFLATE.tar  = cat
 # suitable-extractor(filename): returns extractor based on suffix
 suitable-extractor = $(INFLATE$(suffix $(1)))
 
-# extractor-dependency(filename): returns extractor for 'filename' if the
-# extractor is a dependency. If we build the extractor return nothing.
-# $(firstword) is used here because the extractor can have arguments, like
-# ZCAT="gzip -d -c", and to check for the dependency we only want 'gzip'.
-extractor-dependency = $(firstword $(INFLATE$(filter-out \
-	$(EXTRACTOR_DEPENDENCY_PRECHECKED_EXTENSIONS),$(suffix $(1)))))
+EXTRACTOR_PKG_DEPENDENCY.lzma = $(BR2_XZCAT_HOST_DEPENDENCY)
+EXTRACTOR_PKG_DEPENDENCY.xz   = $(BR2_XZCAT_HOST_DEPENDENCY)
+EXTRACTOR_PKG_DEPENDENCY.lz   = $(BR2_LZIP_HOST_DEPENDENCY)
+
+# extractor-pkg-dependency(filename): returns a Buildroot package
+# dependency needed to extract file based on suffix
+extractor-pkg-dependency = $(EXTRACTOR_PKG_DEPENDENCY$(suffix $(1)))
+
+# extractor-system-dependency(filename): returns the name of the tool
+# needed to extract 'filename', and is meant to be used with
+# DL_TOOLS_DEPENDENCIES, in order to check that the necesary tool is
+# provided by the system Buildroot runs on.
+#
+# $(firstword) is used here because the extractor can have arguments,
+# like ZCAT="gzip -d -c", and to check for the dependency we only want
+# 'gzip'.
+extractor-system-dependency = $(if $(EXTRACTOR_PKG_DEPENDENCY$(suffix $(1))),,\
+	$(firstword $(INFLATE$(suffix $(1)))))
 
 # check-deprecated-variable -- throw an error on deprecated variables
 # example:

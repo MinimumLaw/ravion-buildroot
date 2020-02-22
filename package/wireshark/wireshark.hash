@@ -1,6 +1,6 @@
-# From https://www.wireshark.org/download/src/all-versions/SIGNATURES-3.0.5.txt
-sha1 82883e96ee247d3fcacb0cafa0bed9112824ee3a wireshark-3.0.5.tar.xz
-sha256 c551fce475c49cea317ccbf9d22404bc827dde9cee0ccdf6648bfed3ecd9f820 wireshark-3.0.5.tar.xz
+# From https://www.wireshark.org/download/src/all-versions/SIGNATURES-3.2.1.txt
+sha1  d0b8eb3e01264afb98ec151d7114ed14cf174ced  wireshark-3.2.1.tar.xz
+sha256  589f640058d6408ebbd695a80ebbd6e7bd99d8db64ecda253d27100dfd27e85b  wireshark-3.2.1.tar.xz
 
 # Locally calculated
-sha256 7cdbed2b697efaa45576a033f1ac0e73cd045644a91c79bbf41d4a7d81dac7bf  COPYING
+sha256  7cdbed2b697efaa45576a033f1ac0e73cd045644a91c79bbf41d4a7d81dac7bf  COPYING

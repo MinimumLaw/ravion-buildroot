@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-COLLECTD_VERSION = 5.9.2
+COLLECTD_VERSION = 5.10.0
 COLLECTD_SITE = \
-	https://github.com/collectd/collectd/releases/download/collectd-$(COLLECTD_VERSION)
+	https://github.com/collectd/collectd/releases/download/$(COLLECTD_VERSION)
 COLLECTD_SOURCE = collectd-$(COLLECTD_VERSION).tar.bz2
 COLLECTD_CONF_ENV = ac_cv_lib_yajl_yajl_alloc=yes
 COLLECTD_INSTALL_STAGING = YES
@@ -89,6 +89,7 @@ COLLECTD_CONF_OPTS += \
 	$(if $(BR2_PACKAGE_COLLECTD_LOAD),--enable-load,--disable-load) \
 	$(if $(BR2_PACKAGE_COLLECTD_LOGFILE),--enable-logfile,--disable-logfile) \
 	$(if $(BR2_PACKAGE_COLLECTD_LOGSTASH),--enable-log_logstash,--disable-log_logstash) \
+	$(if $(BR2_PACKAGE_COLLECTD_LUA),--enable-lua,--disable-lua) \
 	$(if $(BR2_PACKAGE_COLLECTD_LVM),--enable-lvm,--disable-lvm) \
 	$(if $(BR2_PACKAGE_COLLECTD_MD),--enable-md,--disable-md) \
 	$(if $(BR2_PACKAGE_COLLECTD_MEMCACHEC),--enable-memcachec,--disable-memcachec) \
@@ -162,6 +163,7 @@ COLLECTD_DEPENDENCIES = \
 	$(if $(BR2_PACKAGE_COLLECTD_GRPC),grpc) \
 	$(if $(BR2_PACKAGE_COLLECTD_IPTABLES),iptables) \
 	$(if $(BR2_PACKAGE_COLLECTD_LOGSTASH),yajl) \
+	$(if $(BR2_PACKAGE_COLLECTD_LUA),lua) \
 	$(if $(BR2_PACKAGE_COLLECTD_LVM),lvm2) \
 	$(if $(BR2_PACKAGE_COLLECTD_MEMCACHEC),libmemcached) \
 	$(if $(BR2_PACKAGE_COLLECTD_MODBUS),libmodbus) \
@@ -202,7 +204,7 @@ COLLECTD_CONF_OPTS += --with-libpq=$(STAGING_DIR)/usr/bin/pg_config
 COLLECTD_CONF_ENV += LIBS="-lpthread -lm"
 endif
 ifeq ($(BR2_PACKAGE_YAJL),y)
-COLLECTD_CONF_OPTS += --with-yajl=$(STAGING_DIR)/usr
+COLLECTD_CONF_OPTS += --with-libyajl=$(STAGING_DIR)/usr
 endif
 
 # network can use libgcrypt
@@ -211,13 +213,6 @@ COLLECTD_DEPENDENCIES += libgcrypt
 COLLECTD_CONF_OPTS += --with-libgcrypt=$(STAGING_DIR)/usr/bin/libgcrypt-config
 else
 COLLECTD_CONF_OPTS += --with-libgcrypt=no
-endif
-
-ifeq ($(BR2_PACKAGE_LUA),y)
-COLLECTD_DEPENDENCIES += lua
-COLLECTD_CONF_OPTS += --enable-lua
-else
-COLLECTD_CONF_OPTS += --disable-lua
 endif
 
 define COLLECTD_INSTALL_TARGET_CMDS
@@ -229,9 +224,6 @@ endef
 define COLLECTD_INSTALL_INIT_SYSTEMD
 	$(INSTALL) -D -m 644 package/collectd/collectd.service \
 		$(TARGET_DIR)/usr/lib/systemd/system/collectd.service
-	mkdir -p $(TARGET_DIR)/etc/systemd/system/multi-user.target.wants
-	ln -fs ../../../../usr/lib/systemd/system/collectd.service \
-		$(TARGET_DIR)/etc/systemd/system/multi-user.target.wants/collectd.service
 endef
 
 $(eval $(autotools-package))

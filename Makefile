@@ -2,7 +2,7 @@
 #
 # Copyright (C) 1999-2005 by Erik Andersen <andersen@codepoet.org>
 # Copyright (C) 2006-2014 by the Buildroot developers <buildroot@uclibc.org>
-# Copyright (C) 2014-2019 by the Buildroot developers <buildroot@buildroot.org>
+# Copyright (C) 2014-2020 by the Buildroot developers <buildroot@buildroot.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -92,9 +92,9 @@ all:
 .PHONY: all
 
 # Set and export the version string
-export BR2_VERSION := 2019.11-rc1
+export BR2_VERSION := 2020.02-rc1
 # Actual time the release is cut (for reproducible builds)
-BR2_VERSION_EPOCH = 1572993000
+BR2_VERSION_EPOCH = 1582065000
 
 # Save running make version since it's clobbered by the make package
 RUNNING_MAKE_VERSION := $(MAKE_VERSION)
@@ -800,6 +800,16 @@ endif # merged /usr
 		$(EXTRA_ENV) $(s) $(TARGET_DIR) $(call qstrip,$(BR2_ROOTFS_POST_SCRIPT_ARGS))$(sep))
 
 	touch $(TARGET_DIR)/usr
+
+# AFTER ALL FILE-CHANGING ACTIONS:
+# Update timestamps in internal file list to fix attribution of files
+# to packages on subsequent builds
+	$(call step_pkg_size_file_list,$(TARGET_DIR))
+	$(call step_pkg_size_finalize)
+	$(call step_pkg_size_file_list,$(STAGING_DIR),-staging)
+	$(call step_pkg_size_finalize,-staging)
+	$(call step_pkg_size_file_list,$(HOST_DIR),-host)
+	$(call step_pkg_size_finalize,-host)
 
 .PHONY: target-post-image
 target-post-image: $(TARGETS_ROOTFS) target-finalize staging-finalize

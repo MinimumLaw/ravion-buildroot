@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-SPICE_VERSION = 0.14.1
+SPICE_VERSION = 0.14.2
 SPICE_SOURCE = spice-$(SPICE_VERSION).tar.bz2
 SPICE_SITE = http://www.spice-space.org/download/releases/spice-server
 SPICE_LICENSE = LGPL-2.1+
@@ -31,13 +31,6 @@ SPICE_CONF_OPTS = \
 	--disable-tests
 
 SPICE_DEPENDENCIES += host-pkgconf
-
-ifeq ($(BR2_PACKAGE_CELT051),y)
-SPICE_CONF_OPTS += --enable-celt051
-SPICE_DEPENDENCIES += celt051
-else
-SPICE_CONF_OPTS += --disable-celt051
-endif
 
 ifeq ($(BR2_PACKAGE_LZ4),y)
 SPICE_CONF_OPTS += --enable-lz4
