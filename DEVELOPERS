@@ -981,6 +981,7 @@ F:	package/at/
 F:	package/libnspr/
 F:	package/libnss/
 F:	package/minicom/
+F:	package/nfs-utils/
 F:	package/sunxi-mali-mainline/
 F:	package/sunxi-mali-mainline-driver/
 
@@ -1943,6 +1944,7 @@ F:	package/libubootenv/
 F:	package/libxml2/
 F:	package/mongoose/
 F:	package/mxml/
+F:	package/numactl/
 F:	package/python-periphery/
 F:	package/sbc/
 F:	package/stunnel/
@@ -2005,10 +2007,6 @@ F:	utils/checkpackagelib/
 N:	Richard Braun <rbraun@sceen.net>
 F:	package/curlftpfs/
 F:	package/tzdata/
-
-N:	Rico Bachmann <bachmann@tofwerk.com>
-F:	package/apr-util/
-F:	package/subversion/
 
 N:	RJ Ascani <rj.ascani@gmail.com>
 F:	package/azmq/
@@ -2085,10 +2083,6 @@ F:	package/mariadb/
 
 N:	Ryan Wilkins <ryan@deadfrog.net>
 F:	package/biosdevname/
-
-N:	Sam Bobroff <sam.bobroff@au1.ibm.com>
-F:	arch/Config.in.powerpc
-F:	package/librtas/
 
 N:	Sam Lancia <sam@gpsm.co.uk>
 F:	package/lrzip/
