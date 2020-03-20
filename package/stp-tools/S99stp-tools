@@ -27,7 +27,7 @@ start() {
 	/usr/sbin/iw dev ap0 set power_save off
 	echo "OK"
 	printf "Turn on internet access via modem: "
-	/usr/bin/pon beeline-m2m
+	/usr/bin/pon megafon-m2m
 	echo "OK"
 	printf "Starting stp-tools: "
 	/usr/local/bin/sc_uart >/var/log/sc_uart.err 2>&1 &
