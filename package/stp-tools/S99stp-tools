@@ -30,7 +30,7 @@ start() {
 	/usr/bin/pon megafon-m2m
 	echo "OK"
 	printf "Starting stp-tools: "
-	/usr/local/bin/sc_uart >/var/log/sc_uart.err 2>&1 &
+	/usr/local/bin/sc_uart >/dev/null 2>&1 &
 	echo "OK"
 }
 
