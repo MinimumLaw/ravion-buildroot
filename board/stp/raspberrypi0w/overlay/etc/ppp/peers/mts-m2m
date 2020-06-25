@@ -1,0 +1,6 @@
+file		/etc/ppp/sim5320e
+noccp
+novj
+novjccomp
+connect		"/usr/sbin/chat -v -t15 -f /etc/ppp/scripts/mts-m2m.chat"
+
