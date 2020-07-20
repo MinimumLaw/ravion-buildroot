@@ -4,6 +4,9 @@
 #
 
 start() {
+	printf "Starting cron"
+	crond
+	echo "OK"
 	printf "Prepare status.txt: "
 	touch /tmp/status.txt
 	chmod 0777 /tmp/status.txt
