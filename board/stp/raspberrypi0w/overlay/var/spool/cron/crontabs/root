@@ -1,1 +1,1 @@
-* * * * * sleep 24h; /sbin/reboot
+#* * * * * sleep 24h; /sbin/reboot
