@@ -557,9 +557,6 @@ F:	package/log4cpp/
 N:	Daniel Nicoletti <dantti12@gmail.com>
 F:	package/cutelyst/
 
-N:	Daniel Nyström <daniel.nystrom@timeterminal.se>
-F:	package/e2tools/
-
 N:	Daniel Price <daniel.price@gmail.com>
 F:	package/nodejs/
 F:	package/redis/
@@ -887,6 +884,7 @@ F:	package/xapian/
 
 N:	Giulio Benetti <giulio.benetti@benettiengineering.com>
 F:	package/minicom/
+F:	package/nfs-utils/
 F:	package/sunxi-mali-mainline/
 F:	package/sunxi-mali-mainline-driver/
 
@@ -1515,6 +1513,10 @@ F:	board/arcturus/
 F:	configs/arcturus_ucp1020_defconfig
 F:	configs/arcturus_ucls1012a_defconfig
 
+N:	Michael Fischer <mf@go-sys.de>
+F:	package/gnuplot/
+F:	package/sdl2/
+
 N:	Michael Rommel <rommel@layer-7.net>
 F:	package/knock/
 F:	package/python-crc16/
@@ -1522,6 +1524,9 @@ F:	package/python-pyzmq/
 
 N:	Michael Trimarchi <michael@amarulasolutions.com>
 F:	package/python-spidev/
+
+N:	Michael Vetter <jubalh@iodoru.org>
+F:	package/jasper/
 
 N:	Michał Łyszczek <michal.lyszczek@bofc.pl>
 F:	board/altera/socrates_cyclone5/
@@ -1800,10 +1805,6 @@ N:	Richard Braun <rbraun@sceen.net>
 F:	package/curlftpfs/
 F:	package/tzdata/
 
-N:	Rico Bachmann <bachmann@tofwerk.com>
-F:	package/apr-util/
-F:	package/subversion/
-
 N:	RJ Ascani <rj.ascani@gmail.com>
 F:	package/azmq/
 
@@ -1873,10 +1874,6 @@ F:	package/mariadb/
 
 N:	Ryan Wilkins <ryan@deadfrog.net>
 F:	package/biosdevname/
-
-N:	Sam Bobroff <sam.bobroff@au1.ibm.com>
-F:	arch/Config.in.powerpc
-F:	package/librtas/
 
 N:	Samuel Martin <s.martin49@gmail.com>
 F:	package/armadillo/
@@ -2254,6 +2251,7 @@ F:	package/imlib2/
 F:	package/jquery-datetimepicker/
 F:	package/jquery-sidebar/
 F:	package/kmod/
+F:	package/libftdi1/
 F:	package/libical/
 F:	package/libmbim/
 F:	package/libndp/
@@ -2272,6 +2270,7 @@ F:	package/poco/
 F:	package/python*
 F:	package/ser2net/
 F:	package/socketcand/
+F:	package/swig/
 F:	package/qt5/qt5serialbus/
 F:	package/sdparm/
 F:	package/ti-utils/
