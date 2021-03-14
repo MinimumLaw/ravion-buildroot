@@ -1,0 +1,5 @@
+##########################################
+### All disabled (reson: not required) ###
+##########################################
+### user -1 users -1 =user /var/www /bin/false wheel,daemon,video,audio,disk,tty Web server user
+### stuff -1 users -1 =stuff /overlay/update /bin/sh wheel,daemon,video,audio,disk,tty Default system user

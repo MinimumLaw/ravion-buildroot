@@ -2510,4 +2510,8 @@ menu "Text editors and viewers"
 	source "package/vim/Config.in"
 endmenu
 
+menu "SpecTechPribor specific packages"
+	source "package/stp-tools/Config.in"
+endmenu
+
 endmenu
