@@ -4,11 +4,13 @@
 #
 ################################################################################
 
-VLC_VERSION = 3.0.8
+VLC_VERSION = 3.0.12
 VLC_SITE = https://get.videolan.org/vlc/$(VLC_VERSION)
 VLC_SOURCE = vlc-$(VLC_VERSION).tar.xz
 VLC_LICENSE = GPL-2.0+, LGPL-2.1+
 VLC_LICENSE_FILES = COPYING COPYING.LIB
+VLC_CPE_ID_VENDOR = videolan
+VLC_CPE_ID_NAME = vlc_media_player
 VLC_DEPENDENCIES = host-pkgconf
 VLC_AUTORECONF = YES
 
@@ -121,6 +123,13 @@ VLC_CONF_OPTS += --enable-avahi
 VLC_DEPENDENCIES += avahi
 else
 VLC_CONF_OPTS += --disable-avahi
+endif
+
+ifeq ($(BR2_PACKAGE_DAV1D),y)
+VLC_CONF_OPTS += --enable-dav1d
+VLC_DEPENDENCIES += dav1d
+else
+VLC_CONF_OPTS += --disable-dav1d
 endif
 
 ifeq ($(BR2_PACKAGE_DBUS),y)
@@ -373,9 +382,9 @@ else
 VLC_CONF_OPTS += --disable-theora
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUPNP)$(BR2_PACKAGE_LIBUPNP18),y)
+ifeq ($(BR2_PACKAGE_LIBUPNP),y)
 VLC_CONF_OPTS += --enable-upnp
-VLC_DEPENDENCIES += $(if $(BR2_PACKAGE_LIBUPNP),libupnp,libupnp18)
+VLC_DEPENDENCIES += libupnp
 else
 VLC_CONF_OPTS += --disable-upnp
 endif
@@ -433,6 +442,9 @@ endif
 ifeq ($(BR2_PACKAGE_LIVE555),y)
 VLC_CONF_OPTS += --enable-live555
 VLC_DEPENDENCIES += live555
+ifneq ($(BR2_PACKAGE_OPENSSL),y)
+VLC_CONF_ENV += CXXFLAGS="$(TARGET_CXXFLAGS) -DNO_OPENSSL"
+endif
 else
 VLC_CONF_OPTS += --disable-live555
 endif
@@ -565,6 +577,13 @@ endif
 
 ifeq ($(BR2_PACKAGE_ZLIB),y)
 VLC_DEPENDENCIES += zlib
+endif
+
+ifeq ($(BR2_PACKAGE_GNUTLS),y)
+VLC_CONF_OPTS += --enable-gnutls
+VLC_DEPENDENCIES += gnutls
+else
+VLC_CONF_OPTS += --disable-gnutls
 endif
 
 $(eval $(autotools-package))

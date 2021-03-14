@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MUTT_VERSION = 1.13.3
+MUTT_VERSION = 1.13.5
 MUTT_SITE = https://bitbucket.org/mutt/mutt/downloads
 MUTT_LICENSE = GPL-2.0+
 MUTT_LICENSE_FILES = GPL
@@ -12,6 +12,17 @@ MUTT_DEPENDENCIES = ncurses
 MUTT_CONF_OPTS = --disable-doc --disable-smtp
 # We're patching configure.ac
 MUTT_AUTORECONF = YES
+
+# 0003-Prevent-possible-IMAP-MITM-via-PREAUTH-response.patch
+MUTT_IGNORE_CVES += CVE-2020-14093
+
+# 0004-Ensure-IMAP-connection-is-closed-after-a-connection-error.patch
+MUTT_IGNORE_CVES += CVE-2020-28896
+
+# 0002-CVE-2021-3181-1.patch
+# 0003-CVE-2021-3181-2.patch
+# 0004-CVE-2021-3181-3.patch
+MUTT_IGNORE_CVES += CVE-2021-3181
 
 ifeq ($(BR2_PACKAGE_LIBICONV),y)
 MUTT_DEPENDENCIES += libiconv
@@ -42,7 +53,7 @@ MUTT_CONF_OPTS += --disable-pop
 endif
 
 # SSL support is only used by imap or pop3 module
-ifneq ($(BR2_PACKAGET_MUTT_IMAP)$(BR2_PACKAGE_MUTT_POP3),)
+ifneq ($(BR2_PACKAGE_MUTT_IMAP)$(BR2_PACKAGE_MUTT_POP3),)
 ifeq ($(BR2_PACKAGE_OPENSSL),y)
 MUTT_DEPENDENCIES += openssl
 MUTT_CONF_OPTS += --with-ssl=$(STAGING_DIR)/usr
