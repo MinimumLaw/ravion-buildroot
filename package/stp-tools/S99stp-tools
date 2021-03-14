@@ -1,0 +1,65 @@
+#!/bin/sh
+#
+# Start stp-tools
+#
+
+start() {
+	printf "Starting cron"
+	crond
+	echo "OK"
+	printf "Prepare status.txt: "
+	touch /tmp/status.txt
+	chmod 0777 /tmp/status.txt
+	chown www-data:www-data /tmp/status.txt
+	echo "OK"
+	printf "Prepare StationaryInfo.txt: "
+	touch /tmp/StationaryInfo.txt
+	chmod 0777 /tmp/StationaryInfo.txt
+	chown www-data:www-data /tmp/StationaryInfo.txt
+	echo "OK"
+	printf "Starting bluetooth communicatons daemon: "
+	/usr/libexec/bluetooth/bluetoothd &
+	echo "OK"
+	printf "Starting hostapd: "
+	hostapd -B /etc/hostapd/hostapd.conf
+	echo "OK"
+	printf "Starting wpa_supplicant: "
+	wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+	echo "OK"
+	printf "Turn off WLAN power-save mode: "
+	/usr/sbin/iw dev ap0 set power_save off
+	echo "OK"
+	printf "Turn on internet access via modem: "
+	/usr/bin/pon megafon-m2m
+	echo "OK"
+	printf "Starting stp-tools: "
+	/usr/local/bin/sc_uart >/dev/null 2>&1 &
+	echo "OK"
+}
+
+stop() {
+	printf "Stopping hostapd: "
+	killall hostapd
+	echo "OK"
+	printf "Stopping stp-tools: "
+	killall /usr/local/bin/sc_uart
+	echo "OK"
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart|reload)
+	stop
+	start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart|reload}"
+	exit 1
+esac
+
+exit $?

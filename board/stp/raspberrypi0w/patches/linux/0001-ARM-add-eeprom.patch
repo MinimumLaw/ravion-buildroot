@@ -1,0 +1,48 @@
+diff --git a/arch/arm/boot/dts/overlays/Makefile b/arch/arm/boot/dts/overlays/Makefile
+index abe86d1..e1e4e30 100644
+--- a/arch/arm/boot/dts/overlays/Makefile
++++ b/arch/arm/boot/dts/overlays/Makefile
+@@ -189,7 +189,8 @@ dtbo-$(CONFIG_ARCH_BCM2835) += \
+ 	w1-gpio.dtbo \
+ 	w1-gpio-pullup.dtbo \
+ 	w5500.dtbo \
+-	wittypi.dtbo
++	wittypi.dtbo \
++	i2c-m24256.dtbo
+ 
+ targets += dtbs dtbs_install
+ targets += $(dtbo-y)
+diff --git a/arch/arm/boot/dts/overlays/i2c-m24256-overlay.dts b/arch/arm/boot/dts/overlays/i2c-m24256-overlay.dts
+new file mode 100644
+index 0000000..a756d8e
+--- /dev/null
++++ b/output/build/linux-custom/arch/arm/boot/dts/overlays/i2c-m24256-overlay.dts
+@@ -0,0 +1,28 @@
++// Definitions for M24256 EEPROM controller on ARM I2C bus.
++/dts-v1/;
++/plugin/;
++
++/{
++	compatible = "brcm,bcm2708";
++
++	fragment@0 {
++		target = <&i2c_arm>;
++		__overlay__ {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "okay";
++
++			st_eep: eeprom@50 {
++				compatible = "st,24c256";
++				reg = <0x50>;
++				size = <32768>; /* 256Kbit or 32Kbyte */
++				pagesize = <64>;
++				address-width = <16>;
++				status = "okay";
++			};
++		};
++	};
++	__overrides__ {
++		addr = <&st_eep>,"reg:0";
++	};
++};
