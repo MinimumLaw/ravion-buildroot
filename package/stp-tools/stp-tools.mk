@@ -2,7 +2,7 @@
 # stp-tools
 ##############################################################################
 
-STP_TOOLS_VERSION = HEAD
+STP_TOOLS_VERSION = core_test
 STP_TOOLS_SITE = git@bitbucket.org:DenisKalou/speakingcity_raspbery.git
 STP_TOOLS_SITE_METHOD = git
 STP_TOOLS_LICENSE = PROPRIETARY
@@ -14,7 +14,6 @@ endef
 
 define STP_TOOLS_INSTALL_TARGET_CMDS
 	$(INSTALL) -D -m 0755 $(@D)/source/call $(TARGET_DIR)/usr/local/bin/call
-	$(INSTALL) -D -m 0755 $(@D)/source/gps $(TARGET_DIR)/usr/local/bin/gps
 	$(INSTALL) -D -m 0755 $(@D)/source/sc_uart $(TARGET_DIR)/usr/local/bin/sc_uart
 	$(INSTALL) -D -m 0755 $(@D)/source/sc_ble_scan $(TARGET_DIR)/usr/local/bin/sc_ble_scan
 	$(INSTALL) -D -m 0755 $(@D)/source/siogg $(TARGET_DIR)/usr/local/bin/siogg
