@@ -1,1 +1,2 @@
-#* * * * * sleep 24h; /sbin/reboot
+* * * * * /usr/local/bin/reBOOT24.sh
+1 * * * * /usr/local/bin/wifiPriority.sh
