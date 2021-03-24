@@ -1,6 +1,6 @@
 #!/bin/sh
 
-serviceAP="SpeakServise" # SSID wifi AP for search
+serviceAP="SpeakService" # SSID wifi AP for search
 nowWIFI=`iwconfig wlan0 | grep ESSID | awk -F '"' {'print $2'}`
 if [ "$nowWIFI" == "$serviceAP" ]; then
 exit 1
