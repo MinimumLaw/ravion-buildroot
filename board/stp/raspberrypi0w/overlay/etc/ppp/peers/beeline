@@ -1,8 +1,0 @@
-file		/etc/ppp/sim5320e
-user		"beeline"
-ipparam		Beeline
-noccp
-novj
-novjccomp
-connect		"/usr/sbin/chat -v -t15 -f /etc/ppp/scripts/beeline.chat"
-

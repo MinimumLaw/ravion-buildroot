@@ -20,17 +20,13 @@ start() {
 	printf "Starting bluetooth communicatons daemon: "
 	/usr/libexec/bluetooth/bluetoothd &
 	echo "OK"
-	printf "Starting hostapd: "
-	hostapd -B /etc/hostapd/hostapd.conf
-	echo "OK"
 	printf "Starting wpa_supplicant: "
 	wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 	echo "OK"
-	printf "Turn off WLAN power-save mode: "
-	/usr/sbin/iw dev ap0 set power_save off
-	echo "OK"
-	printf "Turn on internet access via modem: "
-	/usr/bin/pon megafon-m2m
+	printf "Starting modem: "
+	qmi-network /dev/cdc-wdm0 start
+	ifconfig wwan0 down
+	ifconfig wwan0 up
 	echo "OK"
 	printf "Starting stp-tools: "
 	/usr/local/bin/sc_uart >/dev/null 2>&1 &
@@ -38,9 +34,6 @@ start() {
 }
 
 stop() {
-	printf "Stopping hostapd: "
-	killall hostapd
-	echo "OK"
 	printf "Stopping stp-tools: "
 	killall /usr/local/bin/sc_uart
 	echo "OK"

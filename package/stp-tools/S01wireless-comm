@@ -10,11 +10,6 @@ start() {
 	sleep 3
 	hciconfig hci0 up
 	echo "OK"
-	printf "Add ap0 interface to wlan0 devices: "
-	MAC=`cat /sys/class/net/wlan0/address`
-	iw phy phy0 interface add ap0 type __ap
-	ip link set ap0 address ${MAC}
-	echo "OK"
 	printf "Prepare modem driver: "
 	echo 23 > /sys/class/gpio/export
 	echo 24 > /sys/class/gpio/export
@@ -22,8 +17,7 @@ start() {
 	echo out > /sys/class/gpio/gpio23/direction
 	echo 1 > /sys/class/gpio/gpio24/value
 	echo 1 > /sys/class/gpio/gpio23/value
-	modprobe ppp_generic
-	modprobe option
+	sleep 1
 	echo 0 > /sys/class/gpio/gpio23/value
 	echo "OK"
 }

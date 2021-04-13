@@ -67,25 +67,6 @@ __EOF__
 
 done
 
-#
-# Add requeied params
-#
-if ! grep -qE '^core_freq=250' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
-	cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
-
-# set core frequency
-core_freq=250
-__EOF__
-fi
-
-if ! grep -qE '^init_uart_clock=3000000' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
-	cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
-
-# set uart clock
-init_uart_clock=3000000
-__EOF__
-fi
-
 # Copy initrd image (update procedure here)
 cp -f ${BOARD_DIR}/rootfs.cpio.gz ${BINARIES_DIR}
 
