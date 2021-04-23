@@ -1,10 +1,10 @@
 #!/bin/sh
-####Config####
-
+####Config#### v0.1
+config=/etc/logger/logger.conf
 log=/overlay/update/logLife
-dailyReboot=12 #In hours
-busyCPU=3 #busy cpu time in 15 mins
-minRAM=50000 # free RAM memory in kB
+dailyReboot=`grep dailyReboot /etc/logger/logger.conf | awk -F "=" {'print $2'}|tr -d '\r\n'`
+busyCPU=`grep busyCPU /etc/logger/logger.conf | awk -F "=" {'print $2'}|tr -d '\r\n'`
+minRAM=`grep minRAM /etc/logger/logger.conf | awk -F "=" {'print $2'}|tr -d '\r\n'`
 ####Functions####
 configOut() {
 echo -e "Daily reboot in $dailyReboot hours\nCritical CPU load - $busyCPU\nCritical free RAM - $minRAM"|tee -a $log
@@ -24,6 +24,18 @@ if [ "$freeMem" -le "$minRAM" ]; then
 echo -e "$(date +%Y-%m-%d\_%H:%M:%S) - Out of memory, now is $freeMem kB."|tee -a $log
 swapLog
 sudo reboot ####### --------------------------------------------- uncomment if want enable reboot
+fi
+}
+checkWwan() {
+ipWwan=`ip addr show dev wwan0|grep -w inet|awk {'print $2'}|awk -F "/" {'print $1'}|awk -F "." {'print $1'}`
+if [ "x$ipWwan" != "x" ]; then
+	if [ "$ipWwan" == "169" ]; then
+	echo -e "$(date +%Y-%m-%d\_%H:%M:%S) - Modem is die, restart service."|tee -a $log
+	qmi-network /dev/cdc-wdm0 stop
+	qmi-network /dev/cdc-wdm0 start
+	ifconfig wwan0 down
+	ifconfig wwan0 up
+	fi
 fi
 }
 
@@ -71,6 +83,7 @@ if [ "$load15now" -ge "$busyCPU" ]; then
 restartSystem CPU load averege is more thet $busyCPU\\nSystem need to restart
 fi
 checkMem
+checkWwan
 if [ "$(echo $lifetime|awk -F ":" {'print $1'})" == "$dailyReboot" ]; then
 restartSystem Restarted system at $dailyReboot hours of work
 fi

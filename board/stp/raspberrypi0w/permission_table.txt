@@ -15,6 +15,9 @@
 /etc/sc_uart				d	755	33	33	-	-	-	-	-
 /etc/mdev.conf				f	644	0	0	-	-	-	-	-
 /etc/sc_uart/config.txt			f	644	33	33	-	-	-	-	-
+/etc/logger/logger.conf			f	644	33	33	-	-	-	-	-
+/etc/network/interfaces			f	777	0	0	-	-	-	-	-
+/etc/wpa_supplicant/wpa_supplicant.conf	f	777	0	0	-	-	-	-	-
 /etc/passwd				f	644	0	0	-	-	-	-	-
 /etc/network/if-up.d			d	755	0	0	-	-	-	-	-
 /etc/network/if-pre-up.d		d	755	0	0	-	-	-	-	-
@@ -27,6 +30,8 @@
 ########################
 /var/www				d	755	33	33	-	-	-	-	-
 /var/www/html				d	775	33	33	-	-	-	-	-
+/var/www/html/interface			d	775	50	50	-	-	-	-	-
+/var/www/html/interface/index.php	f	775	33	33	-	-	-	-	-
 /var/www/html/data			d	775	33	33	-	-	-	-	-
 /var/www/html/data/text_files		d	775	33	33	-	-	-	-	-
 /var/www/html/data/audio_files		d	775	33	33	-	-	-	-	-
