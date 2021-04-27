@@ -31,6 +31,7 @@ start() {
 	printf "Starting stp-tools: "
 	/usr/local/bin/sc_uart >/dev/null 2>&1 &
 	echo "OK"
+	echo heartbeat|sudo tee /sys/class/leds/led0/trigger
 }
 
 stop() {

@@ -31,7 +31,7 @@
 /var/www				d	755	33	33	-	-	-	-	-
 /var/www/html				d	775	33	33	-	-	-	-	-
 /var/www/html/interface			d	775	50	50	-	-	-	-	-
-/var/www/html/interface/index.php	f	775	33	33	-	-	-	-	-
+/var/www/html/interface/index.php	f	777	33	33	-	-	-	-	-
 /var/www/html/data			d	775	33	33	-	-	-	-	-
 /var/www/html/data/text_files		d	775	33	33	-	-	-	-	-
 /var/www/html/data/audio_files		d	775	33	33	-	-	-	-	-

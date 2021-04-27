@@ -17,6 +17,13 @@ start() {
 	chown www-data:www-data /overlay/update/www-data
 	ln -sfT /overlay/update/www-data /var/www/html/update
 	sync
+	# Then check hard reset command file
+	if [ -f /var/www/html/clean ]; then
+		echo "Found clean file - erase RW partition"
+		rm -rf /overlay/rw/*
+		sleep 2
+		/sbin/reboot
+	fi
 	# Then check and extract update data
 	if [ -f /var/www/html/update/data.tar.bz2 ]; then
 		echo Found data archive for update.

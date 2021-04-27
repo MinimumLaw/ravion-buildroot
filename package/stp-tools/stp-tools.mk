@@ -2,7 +2,7 @@
 # stp-tools
 ##############################################################################
 
-STP_TOOLS_VERSION = core_test #HEAD
+STP_TOOLS_VERSION = HEAD
 STP_TOOLS_SITE = git@bitbucket.org:DenisKalou/speakingcity_raspbery.git
 STP_TOOLS_SITE_METHOD = git
 STP_TOOLS_LICENSE = PROPRIETARY

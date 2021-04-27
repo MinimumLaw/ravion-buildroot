@@ -1,10 +1,10 @@
 #!/bin/sh
 ####Config#### v0.1
 config=/etc/logger/logger.conf
-log=/overlay/update/logLife
-dailyReboot=`grep dailyReboot /etc/logger/logger.conf | awk -F "=" {'print $2'}|tr -d '\r\n'`
-busyCPU=`grep busyCPU /etc/logger/logger.conf | awk -F "=" {'print $2'}|tr -d '\r\n'`
-minRAM=`grep minRAM /etc/logger/logger.conf | awk -F "=" {'print $2'}|tr -d '\r\n'`
+log=`grep log /etc/logger/logger.conf |awk -F "=" {'print $2'}|tr -d '\r\n'`
+dailyReboot=`grep dailyReboot /etc/logger/logger.conf |awk -F "=" {'print $2'}|tr -d '\r\n'`
+busyCPU=`grep busyCPU /etc/logger/logger.conf |awk -F "=" {'print $2'}|tr -d '\r\n'`
+minRAM=`grep minRAM /etc/logger/logger.conf |awk -F "=" {'print $2'}|tr -d '\r\n'`
 ####Functions####
 configOut() {
 echo -e "Daily reboot in $dailyReboot hours\nCritical CPU load - $busyCPU\nCritical free RAM - $minRAM"|tee -a $log
